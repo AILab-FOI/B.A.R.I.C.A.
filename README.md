@@ -1,2 +1,2 @@
 # B.A.R.I.C.A.
-B.A.R.I.C.A. (Barely an ARtificial Intelligence CAr) is an initial atempt on creating an autonomous vehicle based on artificial intelligence.
+B.A.R.I.C.A. is a recursive acronym standing for Barica is an ARtificial Intelligence Cognitive Agent designed to act as a platform for various AI related applications including but not limited to autonomous vehicles (Barely an ARtificial Intelligence CAr) or virtual assistant (Beautiful ARtificial Intelligence Chat Agent). Playing with acronyms is fun, but really Barica is a traditional name from Hrvatsko Zagorje, a northern part of Croatia where our Faculty resides.
