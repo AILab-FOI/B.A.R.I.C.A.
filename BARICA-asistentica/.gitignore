@@ -1,0 +1,6 @@
+build/*
+__pycache__/*
+sve-1.1.mp4
+*~
+*.pyc
+*.sqlite3
