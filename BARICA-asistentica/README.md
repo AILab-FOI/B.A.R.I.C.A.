@@ -34,8 +34,8 @@ podržava, te na kraju kontrolera implementiranog u JavaScript-u
 koji kroz WebSocket komunicira s backendom i izvršava odgovarajuće
 komande (npr. pokretanje odgovarajuće sekvence govora).
 
-Instalacij i pokretanje
------------------------
+Instalacija i pokretanje
+------------------------
 Da bi se pokrenulo Baricu - asistenticu potrebno je instalirati
 Voicenotebook kao dodatak u Google Chrome (https://voicenotebook.com/)
 te podesiti speech language na hrvatski i uključiti opciju transfer
