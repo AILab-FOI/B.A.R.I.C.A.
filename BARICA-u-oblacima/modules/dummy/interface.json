@@ -1,0 +1,25 @@
+{
+    "name":"DummyTestingModule",
+    "developer":"Markus Schatten <markus.schatten@foi.hr>",
+    "version":"0.0.1",
+    "category":"testing",
+    "description":"Simple module that invokes a trivial expression evaluator",
+    "prerequisites":[ "swipl" ],
+    "methods":{
+	"eval":{
+	    "run":"dummy.pl",
+	    "args_count":1,
+	    "args":[
+		{
+		    "name":"expression",
+		    "type":"str"
+		}
+	    ],
+	    "description":"Evaluate SWI Prolog compatible mathematical expression and return its result.",
+	    "testcase":{
+		"input":[ "2+2" ],
+		"output":"4"
+	    }
+	}
+    }
+}
