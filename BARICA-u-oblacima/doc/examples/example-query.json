@@ -1,0 +1,5 @@
+{
+    "module":"DummyTestingModule",
+    "method":"eval",
+    "args":[ "3 * 9" ]
+}

@@ -6,6 +6,7 @@ import os
 import subprocess
 from time import sleep
 
+DEBUG = False
 
 # Stolen from https://stackoverflow.com/questions/229186/os-walk-without-digging-into-directories-below
 def walklevel( some_dir, level=1 ):
@@ -45,7 +46,8 @@ def load_modules():
     
     def printt( smth ):
         bar.set_description( str( smth ) )
-        sleep( 1 )
+        if DEBUG:
+            sleep( 1 )
 
     for dir_path, subdir_list, file_list in bar:
         for fname in file_list:
@@ -62,7 +64,8 @@ def load_modules():
                     result = json.loads( result )[ "result" ]
                     if str( result ) == method[ "testcase" ][ "output" ]:
                         printt( "Method %s tested succesfully!" % m )
-                print( newmod )
+                if DEBUG:
+                    print( newmod )
     return modules
 
 
