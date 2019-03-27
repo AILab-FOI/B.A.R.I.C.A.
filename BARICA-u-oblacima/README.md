@@ -21,7 +21,7 @@ Pokretanje
 Pokrenuti 
 
 ```
-	./controller
+	./controller.py
 ```
 
 Zatim u pregledniku isprobati adresu za REST API:
