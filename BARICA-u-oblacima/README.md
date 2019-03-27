@@ -10,31 +10,30 @@ Preduvjeti
 Python 3, moduli Flask, Flask-Login, SimpleWebSocketServer, tqdm i pyxf
 te SWI Prolog za pokretanje primjera baze znanja.
 
-'''
-sudo pip3 install flask flask-login SimpleWebSocketServer tqdm
-sudo pip3 install  git+https://github.com/AILab-FOI/pyxf
-sudo apt install swi-prolog
-'''
+.. code-block:: shell
+	sudo pip3 install flask flask-login SimpleWebSocketServer tqdm
+	sudo pip3 install  git+https://github.com/AILab-FOI/pyxf
+	sudo apt install swi-prolog
+
 
 Pokretanje
 ----------
 Pokrenuti 
 
-'''
-./controller
-'''
+.. code-block:: shell
+	./controller
 
 Zatim u pregledniku isprobati adresu za REST API:
 
-'''
-http://localhost:5000/ask/%7B%20%22module%22:%22DummyTestingModule%22,%20%22method%22:%22eval%22,%20%22args%22:[%20%223%20*%209%22%20]%20%7D
-'''
+.. code-block:: 
+	http://localhost:5000/ask/%7B%20%22module%22:%22DummyTestingModule%22,%20%22method%22:%22eval%22,%20%22args%22:[%20%223%20*%209%22%20]%20%7D
+
 
 Odnosno za WS API
 
-'''
-http://localhost:5000/wsapi-test
-'''
+.. code-block:: 
+	http://localhost:5000/wsapi-test
+
 
 Primjer modula
 --------------
