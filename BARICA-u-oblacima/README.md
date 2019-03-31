@@ -28,7 +28,6 @@ Po potrebi je moguće podesiti IP adresu i port na kojem se pokreće poslužitel
 
 ```
 $ ./controler.py --help
-Method eval tested succesfully!: : 2it [00:00, 35.50it/s]
 usage: controler.py [-h] [--ip [IP]] [--port [PORT]]
 
 optional arguments:
