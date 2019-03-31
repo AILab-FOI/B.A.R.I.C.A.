@@ -17,10 +17,10 @@ from pyxf.pyxf import *
 
 from backendapi import load_modules
 
-modules = load_modules()
+
 
 app = Flask( __name__ )
-#socketio = SocketIO( app, async_mode=None, logger=True, engineio_logger=True ) #, async_mode='eventlet'
+
 
 # flask-login
 login_manager = LoginManager()
@@ -159,6 +159,8 @@ if __name__ == "__main__":
     parser.add_argument( "--port", const=True, nargs='?', type=int, help="Specify the port of the server.")
     args = parser.parse_args()
 
+    modules = load_modules()
+    
     if not args.ip:
         args.ip = '127.0.0.1'
     if not args.port:
