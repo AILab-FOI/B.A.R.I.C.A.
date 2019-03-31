@@ -11,9 +11,9 @@ Python 3, moduli Flask, Flask-Login, SimpleWebSocketServer, tqdm i pyxf
 te SWI Prolog za pokretanje primjera baze znanja.
 
 ```
-	sudo pip3 install flask flask-login SimpleWebSocketServer tqdm
-	sudo pip3 install  git+https://github.com/AILab-FOI/pyxf
-	sudo apt install swi-prolog
+sudo pip3 install flask flask-login SimpleWebSocketServer tqdm
+sudo pip3 install  git+https://github.com/AILab-FOI/pyxf
+sudo apt install swi-prolog
 ```
 
 Pokretanje
@@ -21,19 +21,32 @@ Pokretanje
 Pokrenuti 
 
 ```
-	./controller.py
+./controller.py
+```
+
+Po potrebi je moguće podesiti IP adresu i port na kojem se pokreće poslužitelj:
+
+```
+$ ./controler.py --help
+Method eval tested succesfully!: : 2it [00:00, 35.50it/s]
+usage: controler.py [-h] [--ip [IP]] [--port [PORT]]
+
+optional arguments:
+  -h, --help     show this help message and exit
+  --ip [IP]      Specify the IP address of the server.
+  --port [PORT]  Specify the port of the server.
 ```
 
 Zatim u pregledniku isprobati adresu za REST API:
 
 ```
-	http://localhost:5000/ask/%7B%20%22module%22:%22DummyTestingModule%22,%20%22method%22:%22eval%22,%20%22args%22:[%20%223%20*%209%22%20]%20%7D
+http://localhost:5000/ask/%7B%20%22module%22:%22DummyTestingModule%22,%20%22method%22:%22eval%22,%20%22args%22:[%20%223%20*%209%22%20]%20%7D
 ```
 
 Odnosno za WS API
 
 ```
-	http://localhost:5000/wsapi-test
+http://localhost:5000/wsapi-test
 ```
 
 Primjer modula
