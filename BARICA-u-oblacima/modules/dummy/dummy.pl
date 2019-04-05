@@ -12,4 +12,5 @@ main( [ eval | Argv ] ) :-
         term_to_atom( Term, SingleArg ),
         Val is Term,
 	prolog_to_json( result( Val ), Res ),
-	json_write( current_output, Res ).
+	json_write( current_output, Res ),
+	halt.
