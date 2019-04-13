@@ -41,6 +41,7 @@ if __name__ == '__main__':
 
 
     port = connect( args.host, args.port )
+    print( "OK, B.A.R.I.C.A. is listening on port %d!" % port )
 
     # Start a random number generator program
     # (can be anything)
