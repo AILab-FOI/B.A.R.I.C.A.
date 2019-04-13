@@ -1,19 +1,26 @@
 #!/usr/bin/env python3
+
 from flask import Flask, Response, redirect, url_for, request, session, abort
 from flask_login import LoginManager, UserMixin, \
                                 login_required, login_user, logout_user
-from flask_socketio import SocketIO
+
+
+import json
+from time import sleep
+from SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
+import _thread
+
 
 # install with
 # sudo pip3 install git+https://github.com/AILab-FOI/pyxf
 from pyxf.pyxf import *
 
-from backendapi import load_modules
+from backendapi import load_modules, StreamPortManager
 
-modules = load_modules()
+
 
 app = Flask( __name__ )
-socketio = SocketIO( app )
+
 
 # flask-login
 login_manager = LoginManager()
@@ -38,13 +45,15 @@ class User( UserMixin ):
 users = [ User( id ) for id in [ 'barica', 'ivek', 'joza', 'marica' ] ]
 
 
-# REST API
+# Admin site
 @app.route( '/' )
 @login_required
 def index():
+    # TODO: Put here an administrative site for logged in users
+    # including an introspection of available modules and methods.
     return Response( '{"testing":"ok"}' )
 
-# somewhere to login
+# Login form for the administrative site
 @app.route( "/login", methods=[ "GET", "POST" ] )
 def login():
     if request.method == 'POST':
@@ -58,15 +67,17 @@ def login():
         else:
             return abort( 401 )
     else:
+        # TODO: make this look better
         login_html = open( 'html/login_form.html' ).read()
         return Response( login_html )
 
 
-# somewhere to logout
+# Logout method
 @app.route( "/logout" )
 @login_required
 def logout():
     logout_user()
+    # TODO: Make this look better
     return Response( '<p>Logged out</p>' )
 
 
@@ -80,23 +91,66 @@ def page_not_found( e ):
 @login_manager.user_loader
 def load_user( userid ):
     return User( userid )
-    
+   
+
+# REST API
+# Running module method
+# Add authentication
+@app.route( "/ask/<query>" )
+def ask( query ):
+    q = json.loads( query )
+    return Response( modules[ q[ "module" ] ].run( q[ "method" ], q[ "args" ] ) )
+
+ 
 
 # WS API
 
+# Global message buffer
+BUFFER = []
+class WSController( WebSocket ) :
+    def __init__( self, *args, **kwargs ):
+        WebSocket.__init__( self, *args, **kwargs )
+        _thread.start_new_thread( self.listen, () )
+        
+    def listen( self ):
+        # To send push messages to clients just add message to
+        # BUFFER
+        # message format { "data":data, "address":address }
+        # data is JSON encoded
+        # address is a host:port tuple (e.g. ('127.0.0.1', 46428) )
+        global BUFFER
+        while True:
+            try:
+                if BUFFER:
+                    if BUFFER[ 0 ][ "address" ] == self.address:
+                        msg = BUFFER.pop()
+                        print( 'Sending', str( msg[ "data" ] ) )
+                        self.sendMessage( json.dumps( json.loads( msg ) ) )
+                        sleep( 0.5 )
+            except Exception as e:
+                print( 'WSController: There was an error!', e )
+
+    def handleMessage( self ):
+        # TODO: Add authentication here!
+        print( self.data )
+        if self.data != 'connect':
+            data = json.loads( self.data )
+            result = modules[ data[ "module" ] ].run( data[ "method" ], data[ "args" ] )
+            self.sendMessage( json.dumps( json.loads( result ) ) )
+        else:
+            self.sendMessage( 'connect' )
+
+    def handleConnected( self ):
+        print( self.address, 'connected' )
+        
+    def handleClose( self ):
+        print( self.address, 'closed' )
+
 # Testing
 @app.route( "/wsapi-test" )
-@login_required
 def wstest():
     page = open( 'html/wsapi-test.html' ).read()
-    print( page )
     return Response( page )
-
-
-@socketio.on( 'json' )
-def handle_json( json ):
-    print( 'received json: ' + str( json ) )
-
 
 if __name__ == "__main__":
     import argparse
@@ -105,19 +159,34 @@ if __name__ == "__main__":
     parser.add_argument( "--port", const=True, nargs='?', type=int, help="Specify the port of the server.")
     args = parser.parse_args()
 
+    
     if not args.ip:
         args.ip = '127.0.0.1'
     if not args.port:
         args.port = 5000
 
+    modules = load_modules(args.ip)
+
     SERVERNAME = "%s:%d" % ( args.ip, args.port )
 
+    WSPORT = 8001
+    
     # config
     app.config.update(
-        DEBUG = True,
+        DEBUG = False,
         SECRET_KEY = 'baricajezakon321$$$',
         SERVER_NAME=SERVERNAME
     )
 
-    #socketio.run( app )
-    app.run()
+    print("Mjesto za dodavanje dretve brojača portova")
+    spm = StreamPortManager(args.ip,10)
+    spm.start()
+
+    server = SimpleWebSocketServer( '', WSPORT, WSController )
+    _thread.start_new_thread( server.serveforever, () )
+
+    app.run() # ssl_context='adhoc' (add this for HTTPS)
+
+    print("App run exit")
+    spm.stop()
+    spm.join()
