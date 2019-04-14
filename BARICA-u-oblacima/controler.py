@@ -159,6 +159,8 @@ if __name__ == "__main__":
     parser.add_argument( "--port", const=True, nargs='?', type=int, help="Specify the port of the server.")
     args = parser.parse_args()
 
+    modules = load_modules()
+
     
     if not args.ip:
         args.ip = '127.0.0.1'
@@ -178,15 +180,23 @@ if __name__ == "__main__":
         SERVER_NAME=SERVERNAME
     )
 
-    print("Mjesto za dodavanje dretve brojača portova")
+
     spm = StreamPortManager(args.ip,10)
     spm.start()
+
 
     server = SimpleWebSocketServer( '', WSPORT, WSController )
     _thread.start_new_thread( server.serveforever, () )
 
     app.run() # ssl_context='adhoc' (add this for HTTPS)
+ 4984938 4 minutes ago
+executable file 61 lines (50 sloc) 1.64 KB
+#!/usr/bin/python3 -u
+
+import fileinput
+import json
 
     print("App run exit")
     spm.stop()
     spm.join()
+

@@ -1,7 +1,27 @@
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script type="text/javascript" charset="utf-8">
-    var socket = io.connect('http://' + document.domain + ':' + location.port);
-    socket.on('connect', function() {
-        socket.emit('json', {data: 'I\'m connected!'});
-    });
+  var ws = new WebSocket( 'ws://' + document.domain + ':8001' ); // Create websocket
+  ws.onopen = function() { // Connect to server
+      ws.send( 'connect' );
+  };
+  
+  ws.onmessage = function( msg ) {
+      console.log( msg.data );
+      if( msg.data == 'connect' ) // If server says we are connected send some data
+      {
+          console.log( 'Sending data' );
+          ws.send( JSON.stringify( { // Ask to run DummyTestingModule's eval method to parse a simple expression
+              "module":"DummyTestingModule",
+              "method":"eval",
+              "args":[ "81 * 9 / 27" ]
+          }));
+      }
+      else
+      {
+          var result = JSON.parse( msg.data ); // This should be the response (e.g. {"result":27})
+          console.log( result );
+      }
+  }
+  
 </script>
+
+Use the source, Luke!

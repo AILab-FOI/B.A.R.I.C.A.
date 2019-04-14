@@ -1,0 +1,32 @@
+{
+    "name":"DummyStreamModule",
+    "developer":"Markus Schatten <markus.schatten@foi.hr>",
+    "version":"0.0.1",
+    "category":"testing",
+    "description":"Simple module that processes a stream of numbers to corresponding Fibonacci numbers.",
+    "prerequisites":[ "python3", "nc" ],
+    "methods":{
+	"fibonacci_stream":{
+	    "stdin_stream":true,
+	    "stdout_stream":true,
+	    "eof":"\\x",
+	    "run":"fib-generator.py",
+	    "args_count":2,
+	    "args":[
+		{
+		    "name":"host",
+		    "type":"str"
+		},
+		{
+		    "name":"port",
+		    "type":"int"
+		}
+	    ],
+	    "description":"Read integers from stdin and write out corresponding Fibonacci numbers to stdout.",
+	    "testcase":{
+		"input":[ "1", "2", "3", "\\x" ],
+		"output":"1\n1\n2\n\n"
+	    }
+	}
+    }
+}

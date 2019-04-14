@@ -7,15 +7,16 @@ import sys
 import subprocess
 import pty
 
-
 import socket, errno
 import threading
+
 from time import sleep
 
 DEBUG = False
 
 # Used ports for streams
 STREAM_PORTS = []
+
 
 # Port manager thread stop flag
 PORT_MANAGER_STOP = 0
@@ -95,6 +96,7 @@ def check_port(ip, port):
 
 
 
+
 # Stolen from https://stackoverflow.com/questions/229186/os-walk-without-digging-into-directories-below
 def walklevel( some_dir, level=1 ):
     some_dir = some_dir.rstrip( os.path.sep )
@@ -133,7 +135,7 @@ class Module:
         '''
         if self.descriptor[ "methods" ][ method ][ "stdin_stream" ]:
             if self.descriptor[ "methods" ][ method ][ "stdout_stream" ]:
-                #port = get_stream_port()
+
                 port = get_stream_port(self.ip)
                 command = [ "nc", "-lp", str( port ), "|", os.path.join( self.location, self.descriptor[ "methods" ][ method ][ "run" ] ), method, "|", "nc", args[ 0 ], str( args[ 1 ] ) ]
                 try:

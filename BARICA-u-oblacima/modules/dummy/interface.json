@@ -7,6 +7,8 @@
     "prerequisites":[ "swipl" ],
     "methods":{
 	"eval":{
+	    "stdin_stream":false,
+	    "stdout_stream":false,
 	    "run":"dummy.pl",
 	    "args_count":1,
 	    "args":[
