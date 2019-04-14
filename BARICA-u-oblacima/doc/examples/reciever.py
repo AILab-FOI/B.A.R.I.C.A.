@@ -41,13 +41,14 @@ if __name__ == '__main__':
 
 
     port = connect( args.host, args.port )
-    print( "OK, B.A.R.I.C.A. is listening on port %d!" % port )
+    print("Opened port {0:d}".format(port))
 
     # Start a random number generator program
     # (can be anything)
     command = [ "./num-generator.sh", str( args.num ), "|", "nc", args.host, str( port ) ]
     proc = subprocess.Popen( ' '.join( command ), shell=True )
 
+    
     # Now listen to standard input and
     # process the incomming numbers
     for line in fileinput.input( '-' ):
@@ -57,3 +58,4 @@ if __name__ == '__main__':
             print( line[ :-1 ] )
         if ord( line[ 0 ] ) == 10:
             sys.exit()
+    
