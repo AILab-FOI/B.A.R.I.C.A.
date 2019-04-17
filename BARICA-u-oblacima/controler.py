@@ -15,7 +15,7 @@ import _thread
 # sudo pip3 install git+https://github.com/AILab-FOI/pyxf
 from pyxf.pyxf import *
 
-from backendapi import load_modules
+from backendapi import load_modules, StreamPortManager
 
 
 
@@ -159,12 +159,13 @@ if __name__ == "__main__":
     parser.add_argument( "--port", const=True, nargs='?', type=int, help="Specify the port of the server.")
     args = parser.parse_args()
 
-    modules = load_modules()
     
     if not args.ip:
         args.ip = '127.0.0.1'
     if not args.port:
         args.port = 5000
+
+    modules = load_modules(args.ip)
 
     SERVERNAME = "%s:%d" % ( args.ip, args.port )
 
@@ -177,7 +178,15 @@ if __name__ == "__main__":
         SERVER_NAME=SERVERNAME
     )
 
+    print("Mjesto za dodavanje dretve brojača portova")
+    spm = StreamPortManager(args.ip,10)
+    spm.start()
+
     server = SimpleWebSocketServer( '', WSPORT, WSController )
     _thread.start_new_thread( server.serveforever, () )
 
     app.run() # ssl_context='adhoc' (add this for HTTPS)
+
+    print("App run exit")
+    spm.stop()
+    spm.join()
