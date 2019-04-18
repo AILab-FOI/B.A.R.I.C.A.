@@ -1,0 +1,122 @@
+a:node.
+b:node.
+c:node.
+d:node.
+e:node.
+f:node.
+h:node.
+g:node.
+
+p1:route[ 
+  from->a, 
+  to->b, 
+  length->1, 
+  type->highway, 
+  landscape->farmland ].
+
+p2:route[ 
+  from->a, 
+  to->c, 
+  length->2,
+  type->country_road, 
+  landscape->forest ].
+
+p3:route[ 
+  from->a, 
+  to->d, 
+  length->1, 
+  type->highway, 
+  landscape->farmland ].
+
+p4:route[ 
+  from->b, 
+  to->e, 
+  length->5, 
+  type->highway, 
+  landscape->farmland ].
+
+p5:route[ 
+  from->c, 
+  to->e, 
+  length->2, 
+  type->country_road, 
+  landscape->forest ].
+
+p6:route[ 
+  from->d, 
+  to->f, 
+  length->1, 
+  type->highway, 
+  landscape->farmland ].
+
+p7:route[ 
+  from->e, 
+  to->g, 
+  length->3, 
+  type->highway, 
+  landscape->farmland ].
+
+p8:route[ 
+  from->f, 
+  to->h, 
+  length->5, 
+  type->highway, 
+  landscape->farmland ].
+
+p9:route[ 
+  from->h, 
+  to->g, 
+  length->2, 
+  type->highway, 
+  landscape->farmland ].
+
+?x[ path_to( ?y, ?mod ) -> [ ?x, ?y ] ] :-
+	?x:node,
+	?_:route[ from->?x, to->?y ]@?mod.
+
+?x[ path_to( ?y, ?mod ) -> [ ?x, ?z | ?t ] ] :-
+	?x:node,
+	?_[ from->?x, to->?z ]@?mod,
+	?z[ path_to( ?y, ?mod ) -> [ ?z | ?t ] ].
+
+?x[ path_length_to( ?y, ?mod ) -> ?l ] :-
+	?x:node,
+	?x[ path_to( ?y, ?mod ) -> [ ?x, ?y ] ],
+	?_:route[ from->?x, to->?y, length->?l ]@?mod.
+
+?x[ path_length_to( ?y, ?mod ) -> ?l ] :-
+	?x:node,
+	?x[ path_to( ?y, ?mod ) -> [ ?x, ?z | ?t ] ],
+	?_:route[ from->?x, to->?z, length->?l1 ]@?mod,
+	?z[ path_to( ?y, ?mod ) -> [ ?z | ?t ] ],
+	?z[ path_length_to( ?y, ?mod ) -> ?l2 ],
+	?l \is ?l1 + ?l2.
+
+path_length( [ ?x, ?y ], ?l, ?mod ) :-
+	?_:route[ from->?x, to->?y, length->?l ]@?mod.
+
+path_length( [ ?x, ?y | ?t ], ?l, ?mod ) :-
+	?_:route[ from->?x, to->?y, length->?l1 ]@?mod,
+	path_length( [ ?y | ?t ], ?l2, ?mod ),
+	?l \is ?l1 + ?l2.
+
+?x[ minimal_path_to( ?y, ?mod ) -> ?p ] :-
+	?x:node,
+	?m = min{ ?l | ?x[ path_length_to( ?y, ?mod )->?l ] },
+	?x[ path_to( ?y, ?mod ) -> ?p ],
+	path_length( ?p, ?m, ?mod ).
+
+
+filter( [], ?_ ).
+filter( [ p( ?x, ?y ) | ?t ], ?p ) :-
+	?p[ ?x -> ?y ],
+	filter( ?t, ?p ).
+
+
+%preference_path( ?from, ?to, ?filters, ?p ) :-
+  insertall{ 
+    ?p:route[ ?x->?y ]@pref | 
+    ?p:route[ ?x->?y ], 
+    filter( ?filters, ?p ) },
+  ?from[ minimal_path_to( ?to, pref ) -> ?p ].
+
