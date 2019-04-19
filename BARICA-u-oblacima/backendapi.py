@@ -20,62 +20,68 @@ STREAM_PORTS = []
 # Port manager thread stop flag
 PORT_MANAGER_STOP = 0
 
+# Global IP (to be overriden)
+IP = 'localhost'
+
+def set_IP( ip ):
+    global IP
+    IP = ip
+
 #semaphore
 threadLock = threading.Lock()
 
 # STREAM_PORT manager in particular thread
-class StreamPortManager(threading.Thread):
-    def __init__(self, ip, timeDelay):
+class StreamPortManager( threading.Thread ):
+    def __init__( self, timeDelay ):
         threading.Thread.__init__(self)
-        self.ip = ip
         self.timeDelay = timeDelay #number of cycles between port processing
         self.timeCount = timeDelay #cycle counter
-        print("Port manager started")
+        print( "Port manager started!" )
 
-    def run(self):
+    def run( self ):
         global PORT_MANAGER_STOP
-        while 1:
+        while True:
             if PORT_MANAGER_STOP == 1:
                 break
-            if(self.timeCount == self.timeDelay):
+            if( self.timeCount == self.timeDelay ):
                 self.portProcessing()
                 self.timeCount = 0
             else:
                 self.timeCount +=1
             sleep(0.5) # one cycle is 500 ms (0.5 s)
         
-    def stop(self):
+    def stop( self ):
         global PORT_MANAGER_STOP
         PORT_MANAGER_STOP = 1
-        print("Port manager stopping. Please wait for thread to exit.")
+        print( "Port manager stopping. Please wait for thread to exit." )
         
 
-    def portProcessing(self):
-        global STREAM_PORTS
+    def portProcessing( self ):
+        global STREAM_PORTS, IP
         threadLock.acquire()
-        print("Port processing...\n used ports: {0:d}".format(len(STREAM_PORTS)))
-        for i in range(0,len(STREAM_PORTS)):
-            if i < 0 or i >= len(STREAM_PORTS):
+        print( "Port processing...\n used ports: {0:d}".format( len( STREAM_PORTS ) ) )
+        for i in range( len( STREAM_PORTS ) ):
+            if i < 0 or i >= len( STREAM_PORTS ):
                 threadLock.release()
                 return
-            p = STREAM_PORTS[i]
-            if check_port(self.ip, p) == 1:
-                print("IP: {0}, port {1:d} {2:s}".format(self.ip, p, "CLOSED"))
-                del STREAM_PORTS[i]
+            p = STREAM_PORTS[ i ]
+            if check_port( p ):
+                print( "IP: {0}, port {1:d} {2:s}".format( IP, p, "CLOSED" ) )
+                del STREAM_PORTS[ i ]
                 i -= 1
             else:
-                print("IP: {0}, port {1:d} {2:s}".format(self.ip, p, "OPEN"))
+                print("IP: {0}, port {1:d} {2:s}".format( IP, p, "OPEN" ) )
         threadLock.release()
 
 
-def get_stream_port(ip):
-    global STREAM_PORTS
+def get_stream_port():
+    global STREAM_PORTS, IP
     result = -1
     threadLock.acquire()
-    for i in range(2000,3000):
+    for i in range( 3000, 4000 ):
         if i in STREAM_PORTS:
             continue
-        if check_port(ip,i) == 1:
+        if check_port( i ) == 1:
             STREAM_PORTS.append(i)
             result = i
             break
@@ -83,15 +89,16 @@ def get_stream_port(ip):
     print("Free port found: {0:d}".format(result))
     return result
 
-def check_port(ip, port):
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+def check_port( port ):
+    global IP
+    s = socket.socket( socket.AF_INET, socket.SOCK_STREAM )
     try:
-        s.bind((ip,port))
+        s.bind( ( IP, port ) )
     except socket.error as e:
-        return 0
+        return False
     finally:        
         s.close()
-    return 1   
+    return True
 
 
 
@@ -113,11 +120,10 @@ class ModuleException( Exception ):
             
 # Module class
 class Module:
-    def __init__( self, name, descriptor, location, ip):
+    def __init__( self, name, descriptor, location ):
         self.name = name
         self.descriptor = descriptor
         self.location = location
-        self.ip = ip
 
     def __str__( self ):
         return json.dumps( self.descriptor, indent=4, sort_keys=True )
@@ -133,8 +139,7 @@ class Module:
         '''
         if self.descriptor[ "methods" ][ method ][ "stdin_stream" ]:
             if self.descriptor[ "methods" ][ method ][ "stdout_stream" ]:
-                #port = get_stream_port()
-                port = get_stream_port(self.ip)
+                port = get_stream_port()
                 command = [ "nc", "-lp", str( port ), "|", os.path.join( self.location, self.descriptor[ "methods" ][ method ][ "run" ] ), method, "|", "nc", args[ 0 ], str( args[ 1 ] ) ]
                 try:
                     proc = subprocess.Popen( ' '.join( command ), shell=True )
@@ -152,7 +157,7 @@ class Module:
                 except Exception as e:
                     raise ModuleException( "Error while running module %s. Error was:\n%s" % ( self.name, str( e ) ) )
             
-def load_modules(ip):
+def load_modules():
     bar = tqdm( walklevel( 'modules', level=1 ) )
     modules = {}
     
@@ -167,7 +172,7 @@ def load_modules(ip):
             if fname == 'interface.json':
                 mod = json.loads( open( full_path ).read() )
                 printt( "Processing %s" % mod[ 'name' ] )
-                newmod = Module( mod[ "name" ], mod, dir_path, ip)
+                newmod = Module( mod[ "name" ], mod, dir_path )
                 modules[ mod[ 'name' ] ] = newmod
                 for m in mod[ "methods" ]:
                     method = mod[ "methods" ][ m ]
@@ -197,4 +202,4 @@ def load_modules(ip):
 
 
 if __name__ == '__main__':
-    load_modules('localhost')
+    load_modules()

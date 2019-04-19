@@ -1,3 +1,10 @@
+# EMACS backup files
+*~
+
+# Flora-2 aux files
+.flora_aux_files/
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

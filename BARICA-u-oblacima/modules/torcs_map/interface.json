@@ -1,0 +1,35 @@
+{
+    "name":"TORCSMapModule",
+    "developer":"Markus Schatten <markus.schatten@foi.hr>",
+    "version":"0.0.1",
+    "category":"autonomous vehicles",
+    "description":"Preferential routing for the TORCS/MADRaS AV simulator",
+    "prerequisites":[ "flora2", "python" ],
+    "methods":{
+	"route":{
+	    "stdin_stream":false,
+	    "stdout_stream":false,
+	    "run":"route.py",
+	    "args_count":3,
+	    "args":[
+		{
+		    "name":"from",
+		    "type":"str"
+		},
+		{
+		    "name":"to",
+		    "type":"str"
+		},
+		{
+		    "name":"filters",
+		    "type":"dict"
+		}
+	    ],
+	    "description":"Provide a route from a given node to a given node with applied filters.",
+	    "testcase":{
+		"input":[ "a", "g", "type=highway", "landscape=farmland" ],
+		"output":"[{'path': '[a, b, e, g]'}, {'path': '[a, d, f, h, g]'}]"
+	    }
+	}
+    }
+}
