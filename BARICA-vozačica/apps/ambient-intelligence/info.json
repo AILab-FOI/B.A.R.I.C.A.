@@ -1,0 +1,6 @@
+{
+    "name":"Ambient intelligence",
+    "description":"Ambiental intelligence and preferential routing for B.A.R.I.C.A. cars",
+    "environment":[ "madras", "torcs" ],
+    "language":"python"
+}
