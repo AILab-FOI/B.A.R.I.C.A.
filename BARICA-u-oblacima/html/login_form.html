@@ -1,8 +1,12 @@
-
+{% extends "html_base.html" %}
+{% block content %}
+<h1>Login form</h1>
 <center>
   <form action="" method="post">
     <p><input type="text" name="username"></p>
     <p><input type="password" name="password"></p>
+    <span style = "color: red;">{{ hint | safe}}</span>
     <p><input type="submit" value="Login"></p>
   </form>
 </center>
+{% endblock %}
