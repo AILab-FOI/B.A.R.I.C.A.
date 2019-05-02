@@ -207,7 +207,7 @@ if __name__ == "__main__":
         args.port = 5000
 
     set_IP( args.ip )
-    # modules = load_modules()
+    modules = load_modules()
 
     SERVERNAME = "%s:%d" % ( args.ip, args.port )
 
