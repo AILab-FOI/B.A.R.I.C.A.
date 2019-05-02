@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 
 from flask import Flask, Response, redirect, url_for, request, session, abort
+from flask import render_template
 from flask_login import LoginManager, UserMixin, \
                                 login_required, login_user, logout_user
 
 
-import json
+import json, io
 from time import sleep
 from SimpleWebSocketServer import SimpleWebSocketServer, WebSocket
 import _thread
@@ -18,8 +19,9 @@ from pyxf.pyxf import *
 from backendapi import load_modules, StreamPortManager, set_IP
 
 
-
-app = Flask( __name__ )
+#database module
+from database import app, db, Config
+from database.models import User, DBUser # old type user class and new one for database
 
 
 # flask-login
@@ -29,6 +31,8 @@ login_manager.login_view = "login"
 
 # silly user model
 # TODO: connect this to some DB
+
+'''
 class User( UserMixin ):
 
     def __init__( self, id ):
@@ -38,17 +42,38 @@ class User( UserMixin ):
         
     def __repr__( self ):
         return "%d/%s/%s" % ( self.id, self.name, self.password )
-
+'''
 
 # create some users
 # TODO: update this with data from DB
 users = [ User( id ) for id in [ 'barica', 'ivek', 'joza', 'marica' ] ]
+
+def prepare_database():
+    user = DBUser.query.filter_by(id=1).first()
+    res = ""
+    if user == None:
+        user = DBUser(id=1, name="Barica")
+        user.set_password("test")
+        db.session.add(user)
+        db.session.commit()
+        res = "<p>No default user.</p><p>Refresh to create default user</p>"
+    else:
+        if user.check_password("test") == False:
+            user.set_password("test")
+        output = io.StringIO()
+        print("Test - name: {0:s}, password: test".format(user.name), file=output)
+        res = output.getvalue()
+        output.close()
+    return res
 
 
 # Admin site
 @app.route( '/' )
 @login_required
 def index():
+    #prepare database - test user
+    
+
     # TODO: Put here an administrative site for logged in users
     # including an introspection of available modules and methods.
     return Response( '{"testing":"ok"}' )
@@ -56,20 +81,36 @@ def index():
 # Login form for the administrative site
 @app.route( "/login", methods=[ "GET", "POST" ] )
 def login():
+    title = "Login"
+    hint = prepare_database()
+    
+
     if request.method == 'POST':
+
         username = request.form[ 'username' ]
-        password = request.form[ 'password' ]        
-        if password == "test":
-            id = username
-            user = User( id )
-            login_user( user )
-            return redirect( request.args.get( "next" ) )
+        password = request.form[ 'password' ]    
+
+        user2 = DBUser.query.filter_by(name=username).first()
+        if user2 != None:
+            if user2.password_hash != None:
+                print("User - id: {0:d}, name: {1:s}, pass hash: {2:s}".format(user2.id, user2.name, user2.password_hash))
+                if user2.check_password(password) == True:
+                    login_user (user2)
+                    return redirect (request.args.get( "next" ))
+                else:
+                    return abort( 401 )
+            else:
+                print("User - id: {0:d}, name: {1:s}, pass hash: None".format(user2.id, user2.name))
+                return abort ( 401 )
         else:
             return abort( 401 )
+
     else:
         # TODO: make this look better
-        login_html = open( 'html/login_form.html' ).read()
-        return Response( login_html )
+        return render_template('login_form.html',title=title,hint=hint)
+
+        #login_html = open( 'html/login_form.html' ).read()
+        #return Response( login_html )
 
 
 # Logout method
@@ -166,16 +207,16 @@ if __name__ == "__main__":
         args.port = 5000
 
     set_IP( args.ip )
-    modules = load_modules()
+    # modules = load_modules()
 
     SERVERNAME = "%s:%d" % ( args.ip, args.port )
 
     WSPORT = 8001
     
+
     # config
     app.config.update(
         DEBUG = False,
-        SECRET_KEY = 'baricajezakon321$$$',
         SERVER_NAME=SERVERNAME
     )
 

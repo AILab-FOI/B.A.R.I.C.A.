@@ -7,7 +7,9 @@ import os
 
 def route( frm, to, filters ):
     fl = flora2()
+    print("Flora created")
     fl.load( os.path.join( os.path.dirname( __file__ ), "map") )
+    print("Flora loaded")
     try:
         fl.query( 'newmodule{ pref }' )
     except Flora2QueryError:
