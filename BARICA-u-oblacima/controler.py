@@ -17,6 +17,7 @@ import _thread
 from pyxf.pyxf import *
 
 from backendapi import load_modules, StreamPortManager, set_IP
+from slackapi import run
 
 
 #database module
@@ -192,6 +193,15 @@ class WSController( WebSocket ) :
 def wstest():
     page = open( 'html/wsapi-test.html' ).read()
     return Response( page )
+
+def slack_handler( command, channel ):
+    if command.startswith( "do" ):
+        response = "Sure...write some more code then I can do that!"
+    else:
+        response = "Sorry, cannot answer yet. Check back later when I am implemented!"
+    return response
+
+_thread.start_new_thread( run, ( slack_handler, ) )
 
 if __name__ == "__main__":
     import argparse
