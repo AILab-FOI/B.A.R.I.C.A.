@@ -67,6 +67,6 @@ Također, omogućen je stream podataka putem net cat poslužitelja
 (putem pipe-a na strani modula koji se proslijeđuje klijentu, odnosno
 stream-a na strani klijenta koji se proslijeđuje modulu).
 
-Za primjere klijenata pogledati u `dokumentaciju BARICE-u-oblacima  <https://github.com/AILab-FOI/B.A.R.I.C.A./tree/master/BARICA-u-oblacima/doc>`_.
+Za primjere klijenata pogledati u [dokumentaciju BARICE-u-oblacima](https://github.com/AILab-FOI/B.A.R.I.C.A./tree/master/BARICA-u-oblacima/doc).
 
 
