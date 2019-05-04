@@ -1,17 +1,17 @@
 B.A.R.I.C.A. kontroler
 ======================
 
-Inicijalna implementacija kontrolera, back-end API-ja i dva front-end
-API-ja (REST i WebSocket). Ovo je samo okvir, nedostaje većina 
-funkcionalnosti!
+Inicijalna implementacija kontrolera, back-end API-ja i tri front-end
+API-ja (REST, WebSocket i Slack-bot). Ovo je samo okvir, nedostaje
+većina funkcionalnosti!
 
 Preduvjeti
 ----------
-Python 3, moduli Flask, Flask-Login, SimpleWebSocketServer, tqdm i pyxf
-te SWI Prolog za pokretanje primjera baze znanja.
+Python 3, moduli Flask, Flask-Login, SimpleWebSocketServer, tqdm,
+slackclient i pyxf te SWI Prolog za pokretanje primjera baze znanja.
 
 ```
-sudo pip3 install flask flask-login SimpleWebSocketServer tqdm
+sudo pip3 install flask flask-login SimpleWebSocketServer tqdm slackclient
 sudo pip3 install  git+https://github.com/AILab-FOI/pyxf
 sudo apt install swi-prolog
 ```
@@ -21,7 +21,7 @@ Pokretanje
 Pokrenuti 
 
 ```
-./controller.py
+./controller.py --ip localhost
 ```
 
 Po potrebi je moguće podesiti IP adresu i port na kojem se pokreće poslužitelj:
@@ -51,7 +51,7 @@ http://localhost:5000/wsapi-test
 Primjer modula
 --------------
 
-U direktoriju *modules* nalazi se primjer modula (ključna je datoteka
+U direktoriju *modules* nalaze se primjeri modula (ključna je datoteka
 interface.json u kojoj je specifikacija modula i kako se pokreće).
 Svaki modul može imati jednu ili više metoda navedenih u toj datoteci
 koje se onda preko front-end API-ja mogu pozivati.
@@ -59,11 +59,14 @@ koje se onda preko front-end API-ja mogu pozivati.
 U načelu, modul može biti implementiran u bilo kojoj tehnologiji bitno
 da radi na konzoli i vraća odgovarajući JSON format.
 
-Za sada je implementirana samo veza upit-odgovor (kad klijent pošalje
+Za sada je implementirana veza upit-odgovor (kad klijent pošalje
 upit, poslužitelj vraća odgovor), no postoji i mogućnost push veze
-(poslužitelj šalje poruke). Taj dio još treba razraditi da se omogući
-stream podataka (npr. putem nekakvog pipe-a na strani modula koji
-se proslijeđuje klijentu, odnosno stream-a na strani klijenta koji
-se proslijeđuje modulu). 
+(poslužitelj šalje poruke).
+
+Također, omogućen je stream podataka putem net cat poslužitelja
+(putem pipe-a na strani modula koji se proslijeđuje klijentu, odnosno
+stream-a na strani klijenta koji se proslijeđuje modulu).
+
+Za primjere klijenata pogledati u `dokumentaciju BARICE-u-oblacima  <https://github.com/AILab-FOI/B.A.R.I.C.A./tree/master/BARICA-u-oblacima/doc>`_.
 
 
