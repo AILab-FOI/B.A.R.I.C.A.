@@ -1,0 +1,27 @@
+{
+    "name":"Klafra",
+    "developer":"Markus Schatten <markus.schatten@foi.hr>",
+    "version":"0.0.1",
+    "category":"chatbot",
+    "description":"Simple Croatian chatbot module.",
+    "prerequisites":[ "python3" ],
+    "methods":{
+	"answer":{
+	    "stdin_stream":false,
+	    "stdout_stream":false,
+	    "run":"talk.py",
+	    "args_count":1,
+	    "args":[
+		{
+		    "name":"message",
+		    "type":"str"
+		}
+	    ],
+	    "description":"Send a message to the chatbot and get a response..",
+	    "testcase":{
+		"input":[ "Bok" ],
+		"output":"Bok"
+	    }
+	}
+    }
+}

@@ -30,21 +30,6 @@ login_manager = LoginManager()
 login_manager.init_app( app )
 login_manager.login_view = "login"
 
-# silly user model
-# TODO: connect this to some DB
-
-'''
-class User( UserMixin ):
-
-    def __init__( self, id ):
-        self.id = id
-        self.name = "user" + str(id)
-        self.password = self.name + "_secret"
-        
-    def __repr__( self ):
-        return "%d/%s/%s" % ( self.id, self.name, self.password )
-'''
-
 # create some users
 # TODO: update this with data from DB
 users = [ User( id ) for id in [ 'barica', 'ivek', 'joza', 'marica' ] ]
@@ -195,10 +180,18 @@ def wstest():
     return Response( page )
 
 def slack_handler( command, channel ):
-    if command.startswith( "do" ):
-        response = "Sure...write some more code then I can do that!"
+    if command.startswith( "$$" ):
+        _, module, method, *args = command.split()
+        response = modules[ module ].run( method, args )
+        try:
+            j = json.loads( response )
+            response = j[ "result" ]
+        except Exception as e:
+            response = "Sorry but module %s seems to be incompatible with B.A.R.I.C.A. slack. Exception was:\n%s" % ( module, str( e ) )
     else:
-        response = "Sorry, cannot answer yet. Check back later when I am implemented!"
+        response = modules[ "Klafra" ].run( "answer", [ command ] )
+        j = json.loads( response )
+        response = j[ "result" ]
     return response
 
 _thread.start_new_thread( run, ( slack_handler, ) )

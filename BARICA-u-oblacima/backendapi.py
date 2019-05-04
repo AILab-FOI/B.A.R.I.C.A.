@@ -59,7 +59,8 @@ class StreamPortManager( threading.Thread ):
     def portProcessing( self ):
         global STREAM_PORTS, IP
         threadLock.acquire()
-        print( "Port processing...\n used ports: {0:d}".format( len( STREAM_PORTS ) ) )
+        if DEBUG:
+            print( "Port processing...\n used ports: {0:d}".format( len( STREAM_PORTS ) ) )
         for i in range( len( STREAM_PORTS ) ):
             if i < 0 or i >= len( STREAM_PORTS ):
                 threadLock.release()
