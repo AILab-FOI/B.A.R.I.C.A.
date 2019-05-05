@@ -9,7 +9,9 @@ from flask_login import LoginManager
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-app = Flask( __name__ , template_folder="../html")
+app = Flask( __name__ , template_folder="../html", static_folder="../html/static")
+
+print("Static: {}, {}".format(app.static_folder, app.static_url_path))
 
 print("Template folder: {0:s}".format(app.template_folder))
 basedir = os.path.abspath(os.path.dirname(__file__))

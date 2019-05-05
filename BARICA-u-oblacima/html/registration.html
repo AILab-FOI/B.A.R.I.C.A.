@@ -1,0 +1,22 @@
+{% extends "html_base.html" %}
+{% block content %}
+<h1>New user</h1>
+<center>
+    <form action="" method="post">
+        <p>
+            <label>User name</label><br>
+            <input type="text" name="username">
+        </p>
+        <p>
+            <label>Password</label><br>
+            <input type="password" name="password1">
+        </p>
+        <p>
+            <label>Repeat password</label><br>
+            <input type="password" name="password2">
+        </p>
+        <span style = "color: red;">{{ hint | safe}}</span>
+        <p><input type="submit" value="Register"></p>
+    </form>
+</center>
+{% endblock %}
