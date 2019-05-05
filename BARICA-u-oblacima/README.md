@@ -48,6 +48,14 @@ Odnosno za WS API
 http://localhost:5000/wsapi-test
 ```
 
+Za Slack-bot API potrebno je više koraka opisanih [ovdje](https://www.fullstackpython.com/blog/build-first-slack-bot-python.html).
+Najvažniji korak (osim instalacije aplikacije na Slack workspace-u) je
+postavljanje *SLACK_BOT_TOKEN* varijable okružja:
+
+```
+export SLACK_BOT_TOKEN='vaš token'
+```
+
 Primjer modula
 --------------
 
