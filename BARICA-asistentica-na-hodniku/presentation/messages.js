@@ -23,7 +23,7 @@ window.onload=function(){
 	$( '#barica' )[0].ontimeupdate = function(){
 		var barica = $( '#barica' )[0];
 		var the_time = barica.currentTime;
-		console.log( the_time );
+		//console.log( the_time );
 		if( the_time >= END )
 		{
 			barica.pause();
@@ -88,13 +88,11 @@ function connect() {
 			play_part( 'RASPORED_NE_POSTOJI' );
 		}
 		else if( message_split[0] == 'PROFESOR' )
-		{
-			if($('#podatci-o-profesoru').next().is('#theImg')){
-				$( '#theImg' ).replaceWith('<img id="theImg" style="width: 130%; height: 130%" src="images\\professors\\' 
-			+ message_split[1] + '.png" />');
+	        {
+			if($('#podaci-o-profesoru').next().is('#theImg')){
+				$( '#theImg' ).replaceWith('<img id="theImg" style="width: 130%; height: 130%" src="images/professors/'  + message_split[1] + '.png" />');
 			}else{
-				$('#podatci-o-profesoru').after('<img id="theImg" style="width: 130%; height: 130%" src="images\\professors\\' 
-			+ message_split[1] + '.png" />');
+				$('#podaci-o-profesoru').after('<img id="theImg" style="width: 130%; height: 130%" src="images/professors/' + message_split[1] + '.png" />');
 			}
 			play_part( 'PROFESOR' );
 		}

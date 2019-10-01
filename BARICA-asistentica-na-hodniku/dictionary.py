@@ -1,4 +1,7 @@
 
+from ScrapInformation import scrapProfessorsForTrain, scrapAllGroups
+
+
 d = {'Izvoli': {
     'izvoli': 'Izvoli?'},
      'FOI': {
@@ -60,23 +63,22 @@ d = {'Izvoli': {
              '3': 'Za koju grupu trebaš raspored?',
              }}
 
-from ScrapInformation import scrapProfessorsForTrain, scrapAllGroups
 
-
-professors = scrapProfessorsForTrain()
-prof = {}
-for name, user_name in professors.items():
-        prof[user_name] = 'Izvoli podatke za ' + name
-d['Profesori'] = prof
-
-
-groups = scrapAllGroups()
-gr = {}
-for group in groups:
-        gr[group] = 'Izvoli raspored'
-d['Grupa'] = gr
 
         
 def dictionary():
+        global d
+        professors = scrapProfessorsForTrain()
+        prof = {}
+        for name, user_name in professors.items():
+                prof[user_name] = 'Izvoli podatke za ' + name
+                d['Profesori'] = prof
+                
+                
+        groups = scrapAllGroups()
+        gr = {}
+        for group in groups:
+                gr[group] = 'Izvoli raspored'
+                d['Grupa'] = gr
         return d
 

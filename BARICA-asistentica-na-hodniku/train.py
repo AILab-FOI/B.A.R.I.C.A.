@@ -36,6 +36,18 @@ def train( bot ):
 		'izvoli?'
 	])
 
+
+	chatbot.train([
+		'Perice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'Da li ce',
+		'izvoli?'
+	])
+
 	chatbot.train([
 		'Reci mi nešto općenito o FOI-u',
 		'foi'
@@ -46,9 +58,55 @@ def train( bot ):
 		'foi'
 	])
 
+	chatbot.train([
+		'Zanima me nešto o FOI-u',
+		'foi'
+	])
+
 
 	chatbot.train([
 		'FOI',
+		'foi'
+	])
+
+
+	chatbot.train([
+		'Što ima na FOI',
+		'foi'
+	])
+
+
+	chatbot.train([
+		'Koji je ovo fakultet',
+		'foi'
+	])
+
+
+	chatbot.train([
+		'Reci mi nešto o fakultetu',
+		'foi'
+	])
+
+
+	chatbot.train([
+		'Reci mi nešto općenito o fakultetu',
+		'foi'
+	])
+
+
+	chatbot.train([
+		'Fakultet',
+		'foi'
+	])
+        
+
+	chatbot.train([
+		'Što ima na FOI',
+		'foi'
+	])
+
+	chatbot.train([
+		'Zanima me nešto o fakultetu',
 		'foi'
 	])
 
@@ -64,6 +122,21 @@ def train( bot ):
 	])
 
 	chatbot.train([
+		'Zanimaju me dvorane',
+		'dvorana'
+	])
+
+	chatbot.train([
+		'Zanima me dvorana',
+		'dvorana'
+	])
+
+	chatbot.train([
+		'Reci mi nešto o dvoranama',
+		'dvorana'
+	])
+
+	chatbot.train([
 		'Gdje je dvorana',
 		'dvorana'
 	])
@@ -73,9 +146,24 @@ def train( bot ):
 		'dvorana'
 	])
 
+	chatbot.train([
+		'Gorana',
+		'dvorana'
+	])
+
+	chatbot.train([
+		'Zorana',
+		'dvorana'
+	])
+
 
 	chatbot.train([
 		'Trebam naći profesora',
+		'profesor'
+	])
+        
+	chatbot.train([
+		'Trebam naći profesoricu',
 		'profesor'
 	])
 
@@ -85,7 +173,37 @@ def train( bot ):
 	])
 
 	chatbot.train([
+		'Trebam naći jednu profesoricu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me profesor',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me profesorica',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me jedan profesor',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me jedna profesorica',
+		'profesor'
+	])
+
+	chatbot.train([
 		'Trebam profesora',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam profesoricu',
 		'profesor'
 	])
 
@@ -93,6 +211,135 @@ def train( bot ):
 		'Profesor',
 		'profesor'
 	])
+
+	chatbot.train([
+		'Profesorica',
+		'profesor'
+	])
+
+
+
+	chatbot.train([
+		'Trebam naći nastavnika',
+		'profesor'
+	])
+        
+	chatbot.train([
+		'Trebam naći nastavnicu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam naći jednog nastavnika',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam naći jednu nastavnicu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me nastavnik',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me nastavnica',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me jedan nastavnik',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me jedna nastavnica',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam nastavnika',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam nastavnicu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'nastavnik',
+		'profesor'
+	])
+
+	chatbot.train([
+		'nastavnica',
+		'profesor'
+	])
+
+
+	chatbot.train([
+		'Trebam naći asistenta',
+		'profesor'
+	])
+        
+	chatbot.train([
+		'Trebam naći asistenticu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam naći jednog asistenta',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam naći jednu asistenticu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me asistent',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me asistentica',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me jedan asistent',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Zanima me jedna asistentica',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam asistenta',
+		'profesor'
+	])
+
+	chatbot.train([
+		'Trebam asistenticu',
+		'profesor'
+	])
+
+	chatbot.train([
+		'asistent',
+		'profesor'
+	])
+
+	chatbot.train([
+		'asistentica',
+		'profesor'
+	])
+
 
 	chatbot.train([
 		'Trebam raspored',
@@ -111,6 +358,16 @@ def train( bot ):
 
 	chatbot.train([
 		'Molim te raspored',
+		'raspored'
+	])
+
+	chatbot.train([
+		'Zanima me raspored',
+		'raspored'
+	])
+
+	chatbot.train([
+		'Zanima me moj raspored',
 		'raspored'
 	])
 

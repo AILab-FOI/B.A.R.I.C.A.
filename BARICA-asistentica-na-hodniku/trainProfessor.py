@@ -2,9 +2,10 @@
 from chatterbot.trainers import ListTrainer
 
 from ScrapInformation import scrapProfessorsForTrain
-professors = scrapProfessorsForTrain()
+
 
 def trainProfessor( bot ):
+        professors = scrapProfessorsForTrain()
         chatbot = ListTrainer( bot )
 
         # reove these two lines for version 1.0.0 of chatterbot

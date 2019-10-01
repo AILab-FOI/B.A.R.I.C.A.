@@ -9,11 +9,16 @@
 
 ----
 
-B.A.R.I.C.A asistentica:
-========================
+B.A.R.I.C.A.
+============
 
-*Quo vadis?*
-------------
+Obrati mi se sa *Barice?*
+
+Pitaj me o fakultetu,
+
+rasporedu, dvoranama ili
+
+profesorima!
 
 :: 
 
@@ -27,7 +32,7 @@ Fakultet organizacije i informatike:
 ====================================
 
 *Varaždin*
-------------
+----------
 
 .. image:: images/foi.jpg
     :height: 400px
@@ -36,8 +41,8 @@ Fakultet organizacije i informatike:
 
 ----
 
-Podatci o profesoru:
-====================
+Podaci o profesoru:
+===================
 
 
 ----

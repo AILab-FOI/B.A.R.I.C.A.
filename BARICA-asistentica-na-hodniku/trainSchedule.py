@@ -2,9 +2,10 @@
 from chatterbot.trainers import ListTrainer
 
 from ScrapInformation import scrapAllGroups
-groups = scrapAllGroups()
+
 
 def trainSchedule( bot ):
+    groups = scrapAllGroups()
     chatbot = ListTrainer( bot )
     
     # reove these two lines for version 1.0.0 of chatterbot

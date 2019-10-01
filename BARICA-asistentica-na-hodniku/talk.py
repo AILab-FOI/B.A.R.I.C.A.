@@ -1,10 +1,12 @@
+#!/usr/bin/env python3
+
 from transitions import Machine
 
 from chatterbot import ChatBot
 
 import argparse
 
-from pyautogui import press
+from pyautogui import press, locateCenterOnScreen, hotkey, click
 
 import sys
 
@@ -35,7 +37,7 @@ from selenium import webdriver
 DRIVER = None
 
 from dictionary import *
-d = dictionary()
+
 
 # Last sentence
 LAST_SENTENCE = cp.paste().lower()
@@ -55,7 +57,10 @@ else:
 def go_to_x_slide(x):
     dirname = os.path.dirname(os.path.abspath(__file__))
     filename = os.path.join(dirname, 'build/index.html')
-    DRIVER.get('file://' + filename + '#/step-' + x)
+    try:
+        DRIVER.get('file://' + filename + '#/step-' + x)
+    except:
+        print( 'Error moving to slide', x )
 
 def timeout_schedule_close():
     global driver_for_shown_schedule
@@ -292,9 +297,49 @@ def listen():
 def start_presentation():
     p = subprocess.Popen(['hovercraft', os.path.join('presentation', 'prezentacija.rst'), 'build'],
                          startupinfo=startupinfo)
-    sleep(1)
-    go_to_x_slide('1')
+    sleep( 1 )
+    go_to_x_slide( '1' )
+    press( 'f11' )
+    hotkey( 'ctrl', '+' )
+    done = False
+    while not done:
+        try:
+            sleep( 1 )
+            x, y = locateCenterOnScreen( 'images/start-movie.png' )
+            click( x, y )
+            x, y = locateCenterOnScreen( 'images/close.png' )
+            click( x, y )
+            done = True
+        except:
+            pass
 
+def start_text_to_speech():
+    p = subprocess.Popen( [ 'google-chrome', '--password-store=basic', 'https://voicenotebook.com/?autostart=1&chkinteg=1&chkbufer=1&pagelang=hr-HR' ], startupinfo=startupinfo )
+    sleep( 1 )
+
+def start_remote_login():
+    command = '/usr/bin/teamviewer'
+    command_check = command.split("/")[-1]
+
+    subprocess.Popen( ["/bin/bash", "-c", command], startupinfo=startupinfo )
+
+    t = 1
+    while t < 30:
+        try:
+            w_list = [l.split() for l in subprocess.check_output(["wmctrl", "-lp"]).decode("utf-8").splitlines()]
+            proc = subprocess.check_output(["pgrep", "-f", command_check]).decode("utf-8").strip().split()
+            match = sum([[l[0] for l in w_list if p in l] for p in proc], [])
+            subprocess.Popen(["xdotool", "windowminimize", match[0]])
+            break
+        except (IndexError, subprocess.CalledProcessError):
+            pass
+        t += 1
+        sleep(1)
+    
+    
+
+m = FiniteStateMachine()
+    
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
@@ -347,13 +392,19 @@ if __name__ == '__main__':
             scrapProfessorsForPresentation()
             sys.exit()
 
+    start_remote_login()
+    start_text_to_speech()
+
+    d = dictionary()
+    print( 'Done scraping!' )
+    
     server = SimpleWebSocketServer( '', 8009, NLPController )
     _thread.start_new_thread( server.serveforever, () )
             
-    m = FiniteStateMachine()
 
     # Change to execute in the another browser
     DRIVER = webdriver.Chrome()
+    sleep( 1 )
     start_presentation()
     
     while True:
