@@ -142,6 +142,41 @@ def trainSchedule( bot ):
         '3'
     ])
 
+    chatbot.train([
+        'prva godina',
+        '1'
+    ])
+
+    chatbot.train([
+        'prvu godinu',
+        '1'
+    ])
+
+    chatbot.train([
+        'druga godina',
+        '2'
+    ])
+
+    chatbot.train([
+        'drugu godinu',
+        '2'
+    ])
+
+    chatbot.train([
+        'treća godina',
+        '3'
+    ])
+
+    chatbot.train([
+        'treći godina',
+        '3'
+    ])
+
+    chatbot.train([
+        'treću',
+        '3'
+    ])
+
     for g in groups:
                 
                 chatbot.train([
@@ -150,6 +185,35 @@ def trainSchedule( bot ):
                 ])
                 
                 b_name = g.replace('G', 'b')
+                
+                chatbot.train([
+                        b_name,
+                        g
+                ])
+                
+                b_name = g.replace('G', 'ke')
+                
+                chatbot.train([
+                        b_name,
+                        g
+                ])
+                
+                b_name = g.replace('G', 'je')
+                
+                chatbot.train([
+                        b_name,
+                        g
+                ])
+                
+                b_name = g.replace('G', '')
+                
+                chatbot.train([
+                        b_name,
+                        g
+                ])
+                
+                b_name = g.replace('G', '')
+                b_name = g.replace('.', '')
                 
                 chatbot.train([
                         b_name,
@@ -183,6 +247,84 @@ def trainSchedule( bot ):
             'Varice',
             'izvoli?'
     ])
+
+
+    chatbot.train([
+	'Perice',
+	'izvoli?'
+    ])
+
+
+    chatbot.train([
+	'Da li ce',
+	'izvoli?'
+    ])
+
+
+    chatbot.train([
+		'barbike',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'bakice',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'reče',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'reči',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'perike',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'meriće',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'majice',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'mače',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'priče',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'Verice',
+		'izvoli?'
+	])
+
+
+    chatbot.train([
+		'srce',
+		'izvoli?'
+	])
                 
 
     

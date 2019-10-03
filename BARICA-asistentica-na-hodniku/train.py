@@ -48,6 +48,72 @@ def train( bot ):
 		'izvoli?'
 	])
 
+
+	chatbot.train([
+		'barbike',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'bakice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'reče',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'reči',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'perike',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'meriće',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'majice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'mače',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'priče',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'Verice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'srce',
+		'izvoli?'
+	])
+
 	chatbot.train([
 		'Reci mi nešto općenito o FOI-u',
 		'foi'

@@ -70,7 +70,7 @@ def scrapProfessorsForPresentation():
         user_name_split = user_name.split('#')
         driver.find_element_by_id("teacherRightContentPanel").screenshot(
         os.path.join(filename, user_name_split[0]+ '.png'))
-        print('spremljeno')
+        print(name,'stored!')
 
 def scrapSchedule(kind_of_study, year_of_study, group):
 

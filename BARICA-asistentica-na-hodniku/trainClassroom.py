@@ -4,7 +4,7 @@ from chatterbot.trainers import ListTrainer
 def trainClassroom( bot ):
 	chatbot = ListTrainer( bot )
 	
-	# reove these two lines for version 1.0.0 of chatterbot
+	# remove these two lines for version 1.0.0 of chatterbot
 	bot.set_trainer( ListTrainer ) #1
 	chatbot = bot #2
 
@@ -513,6 +513,84 @@ def trainClassroom( bot ):
 
 	chatbot.train([
 		'Varice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'Perice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'Da li ce',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'barbike',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'bakice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'reče',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'reči',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'perike',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'meriće',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'majice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'mače',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'priče',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'Verice',
+		'izvoli?'
+	])
+
+
+	chatbot.train([
+		'srce',
 		'izvoli?'
 	])
 	

@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
 
+import logging
+logging.basicConfig(filename='/home/barica/heard.log', format='%(asctime)s %(message)s')
+
 from transitions import Machine
 
 from chatterbot import ChatBot
@@ -10,7 +13,7 @@ from pyautogui import press, locateCenterOnScreen, hotkey, click
 
 import sys
 
-from time import sleep
+from time import sleep, asctime
 
 import pyperclip as cp
 
@@ -35,6 +38,11 @@ from ScrapInformation import *
 from selenium import webdriver
 # Global driver 
 DRIVER = None
+
+
+from time import asctime
+dirname = os.path.dirname( os.path.abspath( __file__ ) )    
+
 
 from dictionary import *
 
@@ -165,7 +173,7 @@ class FiniteStateMachine:
         BUFFER.append('KOJA_GODINA')
 
     def groupN_output(self):
-        global BUFFER
+        global BUFFER, dirname
         there_is_schedule = scrapGroups(str(self.kind_of_study), str(self.year_of_study))
         if there_is_schedule != 'Nema':
             BUFFER.append('GROUPS ' + str(there_is_schedule))
@@ -185,6 +193,16 @@ class FiniteStateMachine:
         driver_for_shown_schedule.switch_to_window(driver_for_shown_schedule.current_window_handle)
         timer_schedule = Timer(2 * 60, timeout_schedule_close)
         timer_schedule.start()
+        press( 'f11' )
+        press( [ 'down' ] * 9 )
+        done = False
+        while not done:
+            try:
+                x, y = locateCenterOnScreen( os.path.join( dirname, 'images/close.png' ) )
+                click( x, y )
+                done = True
+            except:
+                sleep( 1 )
         print(d['Grupa'][self.CMD])
         BUFFER.append('RASPORED')
         self.listen_input()
@@ -259,9 +277,9 @@ def processing_input():
     global LAST_SENTENCE
     SENTENCE = LAST_SENTENCE
     
-    if SENTENCE == 'izlaz':
+    """if SENTENCE == 'izlaz':
         DRIVER.quit()
-        os._exit(1)
+        os._exit(1)"""
         
     if m.state == 'listen' or  m.state == 'yes': main_branch(SENTENCE)
         
@@ -279,6 +297,7 @@ def close_schedule():
     driver_for_shown_schedule.close()
     driver_for_shown_schedule = None
 
+    
 def listen():
     global LAST_SENTENCE
     sleep( 0.5 )
@@ -292,10 +311,12 @@ def listen():
             x = LAST_SENTENCE
             LAST_SENTENCE = l
             print( 'Heard:', l )
+            logging.info( str( l ) )
             processing_input()
-
+            
 def start_presentation():
-    p = subprocess.Popen(['hovercraft', os.path.join('presentation', 'prezentacija.rst'), 'build'],
+    dirname = os.path.dirname(os.path.abspath(__file__))
+    p = subprocess.Popen(['hovercraft', os.path.join(dirname, 'presentation', 'prezentacija.rst'), 'build'],
                          startupinfo=startupinfo)
     sleep( 1 )
     go_to_x_slide( '1' )
@@ -305,23 +326,27 @@ def start_presentation():
     while not done:
         try:
             sleep( 1 )
-            x, y = locateCenterOnScreen( 'images/start-movie.png' )
+            x, y = locateCenterOnScreen( os.path.join( dirname, 'images/start-movie.png' ) )
             click( x, y )
-            x, y = locateCenterOnScreen( 'images/close.png' )
+            x, y = locateCenterOnScreen( os.path.join( dirname, 'images/close.png' ) )
             click( x, y )
             done = True
         except:
             pass
 
 def start_text_to_speech():
-    p = subprocess.Popen( [ 'google-chrome', '--password-store=basic', 'https://voicenotebook.com/?autostart=1&chkinteg=1&chkbufer=1&pagelang=hr-HR' ], startupinfo=startupinfo )
+    start_minimized( '/usr/bin/google-chrome', '--password-store=basic --window-position=0,0 --window-size=1,1 "https://voicenotebook.com/?autostart=1&chkinteg=1&chkbufer=1&pagelang=hr-HR"' )
+    #p = subprocess.Popen( [ 'google-chrome', '--password-store=basic', 'https://voicenotebook.com/?autostart=1&chkinteg=1&chkbufer=1&pagelang=hr-HR' ], startupinfo=startupinfo )
     sleep( 1 )
 
 def start_remote_login():
-    command = '/usr/bin/teamviewer'
+    start_minimized( '/usr/bin/teamviewer' )
+
+def start_minimized( command, args='' ):
+    
     command_check = command.split("/")[-1]
 
-    subprocess.Popen( ["/bin/bash", "-c", command], startupinfo=startupinfo )
+    subprocess.Popen( ["/bin/bash", "-c", command + ' ' + args], startupinfo=startupinfo )
 
     t = 1
     while t < 30:
@@ -363,22 +388,22 @@ if __name__ == '__main__':
         'BARICA_HR',
         read_only=not TRAIN,
         logic_adapters=la,
-        database='db.sqlite3' )
+        database=os.path.join( dirname, 'db.sqlite3' ) )
     chatbotClassroom = ChatBot(
         'BARICA_HR_CLASSROOM',
         read_only=not TRAIN,
         logic_adapters=la,
-        database='dbC.sqlite3')
+        database=os.path.join( dirname, 'dbC.sqlite3' ) )
     chatbotProfessor = ChatBot(
         'BARICA_HR_PROFESSOR',
         read_only=not TRAIN,
         logic_adapters=la,
-        database='dbP.sqlite3' )
+        database=os.path.join( dirname, 'dbP.sqlite3' ) )
     chatbotSchedule= ChatBot(
         'BARICA_HR_SCHEDULE',
         read_only=not TRAIN,
         logic_adapters=la,
-        database='dbS.sqlite3' )
+        database=os.path.join( dirname, 'dbS.sqlite3' ) )
 
     if TRAIN:
             from train import *

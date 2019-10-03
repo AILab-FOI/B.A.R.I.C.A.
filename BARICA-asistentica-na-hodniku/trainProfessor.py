@@ -33,6 +33,26 @@ def trainProfessor( bot ):
                                 'profesor ' + name,
                                 user_name
                                 ])
+                        if name.split(' ', 1)[0].endswith('a'):
+                                chatbot.train([
+                                'asistentica ' + name,
+                                user_name
+                                ])
+                        else:
+                                chatbot.train([
+                                'asistent ' + name,
+                                user_name
+                                ])
+                        if name.split(' ', 1)[0].endswith('a'):
+                                chatbot.train([
+                                'nastavnica ' + name,
+                                user_name
+                                ])
+                        else:
+                                chatbot.train([
+                                'nastavnik ' + name,
+                                user_name
+                                ])
 
                 chatbot.train([
                 'marcus hutchins',
@@ -83,6 +103,71 @@ def trainProfessor( bot ):
                 'Varice',
                 'izvoli?'
                 ])
+
+                chatbot.train([
+		'Perice',
+		'izvoli?'
+                ])
+
+                chatbot.train([
+		'Da li ce',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'barbike',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'bakice',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'reče',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'reči',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'perike',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'meriće',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'majice',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'mače',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'priče',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'Verice',
+		'izvoli?'
+	        ])
+
+                chatbot.train([
+		'srce',
+		'izvoli?'
+	        ])
 
         
 
