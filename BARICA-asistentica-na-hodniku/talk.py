@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import logging
-logging.basicConfig(filename='/home/barica/heard.log', format='%(asctime)s %(message)s')
+logging.basicConfig( filename='/home/barica/heard.log', format='%(asctime)s %(message)s', level=logging.INFO )
 
 from transitions import Machine
 
