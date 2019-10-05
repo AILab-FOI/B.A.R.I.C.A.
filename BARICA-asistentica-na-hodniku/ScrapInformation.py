@@ -19,9 +19,23 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+from io import BytesIO
+
+def capture_element( element, driver, imgfile ):
+  location = element.location
+  size = element.size
+  img = driver.get_screenshot_as_png()
+  img = Image.open( BytesIO( img ) )
+  left = location[ 'x' ]
+  top = location[ 'y' ]
+  right = location[ 'x' ] + size[ 'width' ]
+  bottom = location[ 'y' ] + size[ 'height' ]
+  img = img.crop( ( int( left ), int( top ), int( right ), int( bottom ) ) )
+  img.save( imgfile )
+
 def scrapProfessorsForTrain():
 
-    print('--> SCRAP PROFESSORS FOR TRAIN AND DICTIONARY')
+    print('--> SCRAPING PROFESSORS FOR TRAIN AND DICTIONARY')
 
     urlpage =  'https://nastava.foi.hr/'
 
@@ -49,7 +63,7 @@ def scrapProfessorsForTrain():
 
 def scrapProfessorsForPresentation():
 
-    print('--> SCRAP PROFESSORS FOR PRESENTATION')
+    print('--> SCRAPING PROFESSORS FOR PRESENTATION')
 
     dirname = os.path.dirname(os.path.abspath('__file__'))
     filename = os.path.join(dirname, 'build/images/professors')
@@ -68,13 +82,17 @@ def scrapProfessorsForPresentation():
     for name, user_name in professors.items():
         driver.get('https://nastava.foi.hr/?username=' + user_name)
         user_name_split = user_name.split('#')
-        driver.find_element_by_id("teacherRightContentPanel").screenshot(
-        os.path.join(filename, user_name_split[0]+ '.png'))
-        print(name,'stored!')
+        elem = driver.find_element_by_id( "teacherRightContentPanel" )
+        imgfile = os.path.join( filename, user_name_split[0] + '.png' )
+        try:
+            elem.screenshot( imgfile )
+        except:
+            capture_element( elem, driver, imgfile )
+        print( name, 'stored!' )
 
 def scrapSchedule(kind_of_study, year_of_study, group):
 
-    print('--> SCRAP SCHEDULE')
+    print('--> SCRAPING SCHEDULE')
 
     chrome_options = Options()
     chrome_options.add_argument("--window-size=1920x1080")
@@ -106,7 +124,7 @@ def scrapSchedule(kind_of_study, year_of_study, group):
 
 def scrapGroups(kind_of_study, year_of_study):
 
-    print('--> SCRAP GROUPS FOR SCHEDULE')
+    print('--> SCRAPING GROUPS FOR SCHEDULE')
 
     options = Options()
     options.add_argument('headless')
@@ -136,7 +154,7 @@ def scrapGroups(kind_of_study, year_of_study):
 
 def scrapAllGroups():
 
-    print('--> SCRAP ALL GROUPS')
+    print('--> SCRAPING ALL GROUPS')
 
     options = Options()
     options.add_argument('headless')
@@ -173,7 +191,7 @@ def scrapAllGroups():
 
 def scrapSchedulesForPresentation():
 
-    print ('--> SCRAP SCHEDULES FOR PRESENTATION')
+    print ('--> SCRAPING SCHEDULES FOR PRESENTATION')
 
     chrome_options = Options()
     #chrome_options.add_argument("--headless")

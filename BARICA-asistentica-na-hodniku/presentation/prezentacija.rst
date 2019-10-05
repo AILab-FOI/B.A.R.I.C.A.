@@ -7,6 +7,17 @@
 :css: barica.css
 :css: video_barica.mp4
 
+
+.. |malo| raw:: html
+
+   <p style="font-size: 10px">
+
+.. |nimalo| raw:: html
+
+   </p>
+
+
+
 ----
 
 B.A.R.I.C.A.
@@ -19,6 +30,14 @@ Pitaj me o fakultetu,
 rasporedu, dvoranama ili
 
 profesorima!
+
+|malo| Npr. zanima me jedan profesor |nimalo|
+
+|malo| ili trebam raspored |nimalo|
+
+|malo| ili reci mi nešto općenito o fakultetu |nimalo|
+
+|malo| ili zanimaju me dvorane |nimalo|
 
 :: 
 

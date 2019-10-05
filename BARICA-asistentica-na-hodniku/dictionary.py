@@ -64,9 +64,11 @@ d = {'Izvoli': {
              }}
 
 
-
-        
 def dictionary():
+        global d
+        return d
+        
+def setup():
         global d
         professors = scrapProfessorsForTrain()
         prof = {}
@@ -82,3 +84,4 @@ def dictionary():
                 d['Grupa'] = gr
         return d
 
+setup()

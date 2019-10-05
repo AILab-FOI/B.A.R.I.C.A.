@@ -1,4 +1,4 @@
-
+from train import train_barica
 from chatterbot.trainers import ListTrainer
 
 from ScrapInformation import scrapProfessorsForTrain
@@ -11,6 +11,8 @@ def trainProfessor( bot ):
         # reove these two lines for version 1.0.0 of chatterbot
         bot.set_trainer( ListTrainer ) #1
         chatbot = bot #2
+
+        train_barica( chatbot )
 
         for name, user_name in professors.items():
                 chatbot.train([
@@ -70,6 +72,16 @@ def trainProfessor( bot ):
                 ])
 
                 chatbot.train([
+                'tko je tvoj tata',
+                'mschatte#nastavnici'
+                ])
+
+                chatbot.train([
+                'who is your daddy',
+                'mschatte#nastavnici'
+                ])
+
+                chatbot.train([
                 'mišu reko',
                 'mdzeko#nastavnici'
                 ])
@@ -78,101 +90,5 @@ def trainProfessor( bot ):
                 'miš u džepu',
                 'mdzeko#nastavnici'
                 ])
-
-                chatbot.train([
-                'Barice',
-                'izvoli'
-                ])
-
-                chatbot.train([
-                'Marice',
-                'izvoli'
-                ])
-
-                chatbot.train([
-                'Zorice',
-                'izvoli'
-                ])
-
-                chatbot.train([
-                'Starice',
-                'izvoli'
-                ])
-
-                chatbot.train([
-                'Varice',
-                'izvoli?'
-                ])
-
-                chatbot.train([
-		'Perice',
-		'izvoli?'
-                ])
-
-                chatbot.train([
-		'Da li ce',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'barbike',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'bakice',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'reče',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'reči',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'perike',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'meriće',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'majice',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'mače',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'priče',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'Verice',
-		'izvoli?'
-	        ])
-
-                chatbot.train([
-		'srce',
-		'izvoli?'
-	        ])
-
-        
-
-
-
-
 
         

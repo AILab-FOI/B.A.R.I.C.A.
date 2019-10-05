@@ -1,4 +1,4 @@
-
+from train import train_barica
 from chatterbot.trainers import ListTrainer
 
 def trainClassroom( bot ):
@@ -124,6 +124,11 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
+		'5',
+		'lab5'
+	])
+
+	chatbot.train([
 		'skriptarnica',
 		'skriptarnica'
 	])
@@ -159,6 +164,11 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
+		'6',
+		'd6'
+	])
+
+	chatbot.train([
 		'šest',
 		'd6'
 	])
@@ -180,6 +190,11 @@ def trainClassroom( bot ):
 
 	chatbot.train([
 		'd7',
+		'd7'
+	])
+
+	chatbot.train([
+		'7',
 		'd7'
 	])
 
@@ -314,7 +329,7 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
-		'Club 15',
+		'club 15',
 		'lab15'
 	])
 
@@ -349,6 +364,16 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
+		'centar za razvoj karijera',
+		'CPSRK'
+	])
+
+	chatbot.train([
+		'centar za razvoj karijere',
+		'CPSRK'
+	])
+
+	chatbot.train([
 		'centar za podršku',
 		'CPSRK'
 	])
@@ -374,6 +399,11 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
+		'4',
+		'd4'
+	])
+
+	chatbot.train([
 		'četiri',
 		'd4'
 	])
@@ -384,7 +414,7 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
-		'Brana 11',
+		'brana 11',
 		'd11'
 	])
 
@@ -414,7 +444,12 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
-		'N1',
+		'n1',
+		'd1'
+	])
+
+	chatbot.train([
+		'1',
 		'd1'
 	])
 
@@ -434,7 +469,12 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
-		'D2',
+		'd2',
+		'd2'
+	])
+
+	chatbot.train([
+		'2',
 		'd2'
 	])
 
@@ -464,6 +504,11 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
+		'8',
+		'd8'
+	])
+
+	chatbot.train([
 		'osam',
 		'd8'
 	])
@@ -479,7 +524,12 @@ def trainClassroom( bot ):
 	])
 
 	chatbot.train([
-		'D3',
+		'd3',
+		'd3'
+	])
+
+	chatbot.train([
+		'3',
 		'd3'
 	])
 
@@ -488,113 +538,4 @@ def trainClassroom( bot ):
 		'd3'
 	])
 
-	chatbot.train([
-		'Barice',
-		'izvoli'
-	])
-
-	chatbot.train([
-		'Marice',
-		'izvoli'
-	])
-
-
-	chatbot.train([
-		'Zorice',
-		'izvoli'
-	])
-
-
-	chatbot.train([
-		'Starice',
-		'izvoli'
-	])
-
-
-	chatbot.train([
-		'Varice',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'Perice',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'Da li ce',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'barbike',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'bakice',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'reče',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'reči',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'perike',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'meriće',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'majice',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'mače',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'priče',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'Verice',
-		'izvoli?'
-	])
-
-
-	chatbot.train([
-		'srce',
-		'izvoli?'
-	])
-	
-
-
-
-	
+	train_barica( chatbot )
