@@ -4,7 +4,7 @@ B.A.R.I.C.A. - asistentica
 BARICA-asistentica (engl. Beautiful ARtificial Intellgence Chat Agent)
 je umjetna inteligencija za pripomoć pri prezentaciji. Sastoji se od
 sljedećih komponenti:
-1. Chatbot - neuronska mreža koja odlučuje o odgovoru na upit 
+1. Chatbot - regresijski model koji odlučuje o odgovoru na upit 
 prirodnim jezikom;
 2. Backend - inteligentni sustav koji upravlja ostalim komponentama
 (prezentacijom, neuronskom mrežom, speech to text servisom, video
