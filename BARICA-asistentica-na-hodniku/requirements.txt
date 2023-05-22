@@ -6,6 +6,6 @@ ChatterBot==0.8.7
 Pillow==9.3.0
 SimpleWebSocketServer==0.1.1
 beautifulsoup4==4.7.1
-requests==2.21.0
+requests==2.31.0
 hovercraft==2.6
 resettabletimer==0.7.0
