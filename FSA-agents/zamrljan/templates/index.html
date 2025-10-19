@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agent - Zamrljan i priroda i društvo u Varaždinskoj županiji</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>Zamrljan</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/zamrljan.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+      <option>Koji su gradovi Varaždinske županije?</option>
+      <option>Kako su se u prošlosti nazivali simboli određenog zanata?</option>
+      <option>Što je gospodarstvo?</option>
+      <option>Koja su zaštićena mjesta u Varaždinskoj županiji?</option>
+      <option>Kada i gdje se Varaždin prvi puta spominje?</option>
+      <option>Kakva su ljeta u Varaždinskoj županiji?</option>
+      <option>Koje su rijeke u Varaždinskoj županiji?</option>
+      <option>Što su termalne vode?</option>
+      <option>Koja su jezera u Varaždinskoj županiji?</option>
+      <option>Što je reljef?</option>
+      <option>Što je Varaždinsko polje?</option>
+      <option>Za što nam služe prometnice?</option>
+      <option>Koja je najjača grana gospodarstva u našoj županiji?</option>
+      <option>Gdje je smješten Varaždin?</option>
+      <option>Što su radila Ilirska plemena u našem kraju?</option>
+      <option>Što su radili Stari Rimljani?</option>
+      <option>Kako su se branili od Turaka?</option>
+      <option>Za što je korištena rijeka Drava prilikom  velike seobe naroda?</option>
+      <option>Kada Varaždin prestaje biti glavni grad Hrvatske?</option>
+      <option>Koje su znamenite ličnosti naše županije?</option>
+      <option>Tko si ti?</option>
+      <option>Tko te napravio?</option>
+      <option>Kako si?</option>
+      <option>Bravo!</option>
+    </select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnog agenta Zamrljanog koji priča o prirodi i društvu u Varaždinskoj županiji. Napravljen je u suradnji s učiteljicom Martinom Dugonjić, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež Zamrljanog i imenovali ga. Možeš mu postavljati pitanja poput:
+      <ol>
+	<li>Koji su gradovi Varaždinske županije?</li>
+	<li>Kako su se u prošlosti nazivali simboli određenog zanata?</li>
+	<li>Što je gospodarstvo?</li>
+	<li>Koja su zaštićena mjesta u Varaždinskoj županiji?</li>
+	<li>Kada i gdje se Varaždin prvi puta spominje?</li>
+	<li>Kakva su ljeta u Varaždinskoj županiji?</li>
+	<li>Koje su rijeke u Varaždinskoj županiji?</li>
+	<li>Što su termalne vode?</li>
+	<li>Koja su jezera u Varaždinskoj županiji?</li>
+	<li>Što je reljef?</li>
+	<li>Što je Varaždinsko polje?</li>
+	<li>Za što nam služe prometnice?</li>
+	<li>Koja je najjača grana gospodarstva u našoj županiji?</li>
+	<li>Gdje je smješten Varaždin?</li>
+	<li>Što su radila Ilirska plemena u našem kraju?</li>
+	<li>Što su radili Stari Rimljani?</li>
+	<li>Kako su se branili od Turaka?</li>
+	<li>Za što je korištena rijeka Drava prilikom  velike seobe naroda?</li>
+	<li>Kada Varaždin prestaje biti glavni grad Hrvatske?</li>
+	<li>Koje su znamenite ličnosti naše županije?</li>
+	<li>Tko si ti?</li>
+	<li>Tko te napravio?</li>
+	<li>Kako si?</li>
+	<li>Bravo!</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

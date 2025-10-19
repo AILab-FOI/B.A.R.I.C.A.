@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agent - Micko i ljeto</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>Micko</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/video_micko.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+      <option>Kada započinje i završava ljeto?</option>
+      <option>Koji su ljetni mjeseci?</option>
+      <option>Kakvo je vrijeme ljeti?</option>
+      <option>Trajanje dana i noći na početku ljeta?</option>
+      <option>Što se događa s trajanjem dana i noći tijekom ljeta?</option>
+      <option>Što ne bismo smjeli napraviti za vrijeme grmljavine ako smo vani?</option>
+      <option>Zašto ljeti ne smijemo paliti vatru u prirodi?</option>
+      <option>Što rade ljeti životinje koje imaju mladunce?</option>
+      <option>Što rade ptice selice ljeti?</option>
+      <option>Koji plodovi dozrijevaju ljeti u voćnjaku?</option>
+      <option>Koji povrtni plodovi dozrijevaju ljeti u vrtu?</option>
+      <option>Što radimo s viškom voća i povrća?</option>
+      <option>Zašto bor i maslina mogu rasti na ljetnoj suši?</option>
+      <option>Zašto tijekom ljeta odijevamo laganiju odjeću? (Opiši odjeću koju nosiš ljeti.)</option>
+      <option>Koje su ljetne aktivnosti na otvorenom?</option>
+      <option>Objasni zašto ljeti trebamo posebno zaštititi kožu kremom?</option>
+      <option>Zašto tijekom ljeta ne ideš u školu?</option>
+      <option>Tko su turisti?</option>
+      <option>Koje bi znamenitosti ljeti mogli posjetiti turisti u našem gradu?</option>
+      <option>Ljeti se na travnjacima uočavamo mnoštvo kukaca. Čime biljka privlači kukce?</option>
+      <option>Pčele oblijeću cvjetove. Koji je najpoznatiji njihov proizvod i za što ga možemo koristiti?</option>
+      <option>Kakvo vrijeme pčele nagovješćuju ako ostaju u svojim košnicama?</option>
+      <option>Zašto na plaži ne koristimo pjenu za kupanje?</option>
+      <option>Zašto nije dobro ići na plažu kad na zvoniku otkuca podne?</option>
+    </select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnog agenta Micka koji priča o ljetu. Napravljen je u suradnji s učiteljicom Natalijom Lončar, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež Micka i imenovali ga. Možeš mu postavljati pitanja o ljetu poput:
+      <ol>
+	<li>Kada započinje i završava ljeto?</li>
+	<li>Koji su ljetni mjeseci?</li>
+	<li>Kakvo je vrijeme ljeti?</li>
+	<li>Trajanje dana i noći na početku ljeta?</li>
+	<li>Što se događa s trajanjem dana i noći tijekom ljeta?</li>
+	<li>Što ne bismo smjeli napraviti za vrijeme grmljavine ako smo vani?</li>
+	<li>Zašto ljeti ne smijemo paliti vatru u prirodi?</li>
+	<li>Što rade ljeti životinje koje imaju mladunce?</li>
+	<li>Što rade ptice selice ljeti?</li>
+	<li>Koji plodovi dozrijevaju ljeti u voćnjaku?</li>
+	<li>Koji povrtni plodovi dozrijevaju ljeti u vrtu?</li>
+	<li>Što radimo s viškom voća i povrća?</li>
+	<li>Zašto bor i maslina mogu rasti na ljetnoj suši?</li>
+	<li>Zašto tijekom ljeta odijevamo laganiju odjeću? (Opiši odjeću koju nosiš ljeti.)</li>
+	<li>Koje su ljetne aktivnosti na otvorenom?</li>
+	<li>Objasni zašto ljeti trebamo posebno zaštititi kožu kremom?</li>
+	<li>Zašto tijekom ljeta ne ideš u školu?</li>
+	<li>Tko su turisti?</li>
+	<li>Koje bi znamenitosti ljeti mogli posjetiti turisti u našem gradu?</li>
+	<li>Ljeti se na travnjacima uočavamo mnoštvo kukaca. Čime biljka privlači kukce?</li>
+	<li>Pčele oblijeću cvjetove. Koji je najpoznatiji njihov proizvod i za što ga možemo koristiti?</li>
+	<li>Kakvo vrijeme pčele nagovješćuju ako ostaju u svojim košnicama?</li>
+	<li>Zašto na plaži ne koristimo pjenu za kupanje?</li>
+	<li>Zašto nije dobro ići na plažu kad na zvoniku otkuca podne?</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

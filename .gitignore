@@ -1,3 +1,8 @@
+# Backup files
+*.bck
+*.bck2
+*.bck3
+
 # EMACS backup files
 *~
 

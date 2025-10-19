@@ -1,0 +1,49 @@
+Konfiguracija:
+
+U folder fsa-agenti treba biti po jedan folder za svakog agenta.
+
+Vlasnik foldera (i svega u njemu) treba biti www-data tako da 
+apache može koristiti taj folder.
+
+Ako nije podesiti prava (npr. za micko):
+
+chown -R www-data:www-data micko
+
+U /etc/apache2/sites-enabled/dragon.foi.hr-le-ssl.conf
+
+Za svakog agenta (npr. micko) treba biti:
+
+WSGIDaemonProcess micko user=www-data group=www-data threads=5
+WSGIScriptAlias /micko /home/markus/agenti-fsa/micko/micko.wsgi
+
+<Directory /home/markus/agenti-fsa/micko>
+    WSGIProcessGroup micko
+    WSGIApplicationGroup %{GLOBAL}
+    Require all granted
+</Directory>
+
+I dolje ispod (8014 je port na kojem sluša wss.py za tog agenta - Micko je primjer):
+
+SSLProxyEngine On
+ProxyRequests Off
+ProxyPreserveHost On
+
+    <Location /wsmicko/>
+        ProxyPass wss://localhost:8014/
+        ProxyPassReverse wss://localhost:8014/
+    </Location>
+
+Pokretanje:
+
+Apache agenti bi se trebali pokrenuti pokretanjem apache-a
+
+/etc/init.d/apache2 stop
+/etc/init.d/apache2 start
+
+WebSocket poslužitelji se pokreću skriptom (kao superuser):
+
+./agents.sh start
+
+A zaustavljaju s:
+
+./agent.sh stop

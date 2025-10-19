@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agent - James Pero 008 i Fizikalna svojstva tvari</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>James Pero 008</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/pero-anim.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+<option>Nabroji fizikalna svojstva tvari.</option>
+<option>U kojim agregacijskim stanjima mogu biti tvari?</option>
+<option>Što je taljenje?</option>
+<option>Što je isparavanje?</option>
+<option>Što je kondenzacija?</option>
+<option>Što je očvrščivanje?</option>
+<option>Što je sublimacija?</option>
+<option>Kako se nazivaju tvari koje provode električnu struju?</option>
+<option>Kakve mogu biti tvari s obzirom na kemijska svojstva?</option>
+<option>Kako smo razvrstali tvari?</option>
+<option>Koja je razlika između čistih tvari i smjesa?</option>
+<option>Kako smo razvrstali čiste tvari?</option>
+<option>Koja je razlika između elementarnih tvari i kemijskih spojeva?</option>
+<option>Što su reagensi?</option>
+<option>Koji je reagens za dokazivanje vode?</option>
+<option>Kakve su heterogene smjese?</option>
+<option>Kakve su homogene smjese?</option>
+<option>Što su legure ili slitine?</option>
+<option>Što su otopine?</option>
+<option>Koje vrste otopina razlikujemo?</option>
+<option>Tko si ti?</option>
+<option>Tko te napravio?</option>
+<option>Kako si?</option>
+<option>Bravo!</option>
+</select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnog agenta Jamesa Peru 008 koji priča o fizikalnim svojstvima tvari. Napravljen je u suradnji s učiteljicom Ksenijom Pintarić, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež Jamesa Pere 008 i imenovali ga. Možeš mu postavljati pitanja poput:
+      <ol>
+<li>Nabroji fizikalna svojstva tvari.</li>
+<li>U kojim agregacijskim stanjima mogu biti tvari?</li>
+<li>Što je taljenje?</li>
+<li>Što je isparavanje?</li>
+<li>Što je kondenzacija?</li>
+<li>Što je očvrščivanje?</li>
+<li>Što je sublimacija?</li>
+<li>Kako se nazivaju tvari koje provode električnu struju?</li>
+<li>Kakve mogu biti tvari s obzirom na kemijska svojstva?</li>
+<li>Kako smo razvrstali tvari?</li>
+<li>Koja je razlika između čistih tvari i smjesa?</li>
+<li>Kako smo razvrstali čiste tvari?</li>
+<li>Koja je razlika između elementarnih tvari i kemijskih spojeva?</li>
+<li>Što su reagensi?</li>
+<li>Koji je reagens za dokazivanje vode?</li>
+<li>Kakve su heterogene smjese?</li>
+<li>Kakve su homogene smjese?</li>
+<li>Što su legure ili slitine?</li>
+<li>Što su otopine?</li>
+<li>Koje vrste otopina razlikujemo?</li>
+<li>Tko si ti?</li>
+<li>Tko te napravio?</li>
+<li>Kako si?</li>
+<li>Bravo!</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

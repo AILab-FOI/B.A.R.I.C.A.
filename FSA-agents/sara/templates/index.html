@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivna agentica - Sara i Građanski odgoj i obrazovanje</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>Sara</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/sara-anim.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+<option>Kada je proglašena Opća deklaracija o ljudskim pravima i tko ju je proglasio?</option>
+<option>Što propisuje zakon?</option>
+<option>Što je demokracija?</option>
+<option>Što je monarhija?</option>
+<option>Koga predstavlja Hrvatski sabor i što je njegova uloga?</option>
+<option>Što je volontiranje?</option>
+<option>Što su mediji?</option>
+<option>Što je medijska pismenost?</option>
+<option>Što je migracija?</option>
+<option>Navedi tri razloga zbog kojih ljudi migriraju.</option>
+<option>Definiraj pojam međukulturalnost.</option>
+<option>Koja je religija najzastupljenija u Hrvatskoj?</option>
+<option>Kada se obilježava Dan sjećanja na žrtve holokausta?</option>
+<option>Kako jednim imenom nazivamo običaje, vjerovanja, način odijevanja, pripremu jela u određenom kraju?</option>
+<option>Što je poduzetništvo?</option>
+<option>Koji je glavni cilj društvenog ili socijalnog poduzetništva?</option>
+<option>Objasni pojmove bruto i neto plaća.</option>
+<option>Što je održivi razvoj?</option>
+<option>Kako nazivamo ponovnu upotrebu nekog proizvoda?</option>
+<option>Što je adolescencija?</option>
+<option>Čime održavamo fizičko zdravlje?</option>
+<option>Tko si ti?</option>
+<option>Tko te napravio?</option>
+<option>Kako si?</option>
+<option>Bravo!</option>
+</select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnu agenticu Saru koji priča o građanskom odgoju i obrazovanju. Napravljena je u suradnji s učiteljicom Marta Cepanec, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež Sare i imenovali ju. Možeš mu postavljati pitanja poput:
+      <ol>
+<li>Kada je proglašena Opća deklaracija o ljudskim pravima i tko ju je proglasio?</li>
+<li>Što propisuje zakon?</li>
+<li>Što je demokracija?</li>
+<li>Što je monarhija?</li>
+<li>Koga predstavlja Hrvatski sabor i što je njegova uloga?</li>
+<li>Što je volontiranje?</li>
+<li>Što su mediji?</li>
+<li>Što je medijska pismenost?</li>
+<li>Što je migracija?</li>
+<li>Navedi tri razloga zbog kojih ljudi migriraju.</li>
+<li>Definiraj pojam međukulturalnost.</li>
+<li>Koja je religija najzastupljenija u Hrvatskoj?</li>
+<li>Kada se obilježava Dan sjećanja na žrtve holokausta?</li>
+<li>Kako jednim imenom nazivamo običaje, vjerovanja, način odijevanja, pripremu jela u određenom kraju?</li>
+<li>Što je poduzetništvo?</li>
+<li>Koji je glavni cilj društvenog ili socijalnog poduzetništva?</li>
+<li>Objasni pojmove bruto i neto plaća.</li>
+<li>Što je održivi razvoj?</li>
+<li>Kako nazivamo ponovnu upotrebu nekog proizvoda?</li>
+<li>Što je adolescencija?</li>
+<li>Čime održavamo fizičko zdravlje?</li>
+<li>Tko si ti?</li>
+<li>Tko te napravio?</li>
+<li>Kako si?</li>
+<li>Bravo!</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

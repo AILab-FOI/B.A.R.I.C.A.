@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agent - Axl i biologija krvi</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>Axl</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/axl-anim.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+<option>Koji su osnovni dijelovi krvi?</option>
+<option>Navedi vrste krvnih stanica.</option>
+<option>Koju ulogu imaju eritrociti?</option>
+<option>Koju ulogu imaju leukociti?</option>
+<option>Koju ulogu imaju trombociti?</option>
+<option>Zašto je krv crvene boje?</option>
+<option>Koju ulogu imaju srčani zalisci?</option>
+<option>Što je puls ili bilo?</option>
+<option>Što je aorta?</option>
+<option>Čime je bogata arterijska krv?</option>
+<option>Kojim procesom kisik i hranjive tvari iz kapilara ulaze u stanicu?</option>
+<option>U koje dvije mjerne jedinice izražavamo vrijednost krvnog tlaka?</option>
+<option>Koliko krvi ima u odrasla čovjeka?</option>
+<option>Navedl četiri šupljine koje nalazimo u srcu čovjeka?</option>
+<option>Od kojih dijelova je građeno srce kod vodozemaca?</option>
+<option>Koji kralježnjaci imaju vensko srce?</option>
+<option>Što je kapilarnost kod biljaka?</option>
+<option>Koju ulogu ima korijenova dlačica?</option>
+<option>Kroz koje dijelove biljke putuje voda i mineralne tvari do lista?</option>
+<option>Zašto prilikom transfuzije krvi osoba treba primiti krv isključivo svoje krvne grupe?</option>
+<option>Zbog čega nastaje infarkt srca?</option>
+<option>Što je anemija ili slabokrvnost?</option>
+<option>Tko si ti?</option>
+<option>Tko te napravio?</option>
+<option>Kako si?</option>
+<option>Je li ti lijepo s nama?</option>
+<option>Bravo!</option>
+</select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnog agenta Axla koji priča o biologiji krvi. Napravljen je u suradnji s učiteljom Ernestom Habekom, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež Axla i imenovali ga. Možeš mu postavljati pitanja poput:
+      <ol>
+<li>Koji su osnovni dijelovi krvi?</li>
+<li>Navedi vrste krvnih stanica.</li>
+<li>Koju ulogu imaju eritrociti?</li>
+<li>Koju ulogu imaju leukociti?</li>
+<li>Koju ulogu imaju trombociti?</li>
+<li>Zašto je krv crvene boje?</li>
+<li>Koju ulogu imaju srčani zalisci?</li>
+<li>Što je puls ili bilo?</li>
+<li>Što je aorta?</li>
+<li>Čime je bogata arterijska krv?</li>
+<li>Kojim procesom kisik i hranjive tvari iz kapilara ulaze u stanicu?</li>
+<li>U koje dvije mjerne jedinice izražavamo vrijednost krvnog tlaka?</li>
+<li>Koliko krvi ima u odrasla čovjeka?</li>
+<li>Navedl četiri šupljine koje nalazimo u srcu čovjeka?</li>
+<li>Od kojih dijelova je građeno srce kod vodozemaca?</li>
+<li>Koji kralježnjaci imaju vensko srce?</li>
+<li>Što je kapilarnost kod biljaka?</li>
+<li>Koju ulogu ima korijenova dlačica?</li>
+<li>Kroz koje dijelove biljke putuje voda i mineralne tvari do lista?</li>
+<li>Zašto prilikom transfuzije krvi osoba treba primiti krv isključivo svoje krvne grupe?</li>
+<li>Zbog čega nastaje infarkt srca?</li>
+<li>Što je anemija ili slabokrvnost?</li>
+<li>Tko si ti?</li>
+<li>Tko te napravio?</li>
+<li>Kako si?</li>
+<li>Je li ti lijepo s nama?</li>
+<li>Bravo!</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

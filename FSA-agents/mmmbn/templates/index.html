@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agenti - Milka Man, Mister Brundo i Nadot o klimi </title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>Milka Man, Mister Brundo i Nadot</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/mmmbn-video.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+      <option>Što je klima?</option>
+      <option>Što je vrijeme?</option>
+      <option>Što su klimatski čimbenici?</option>
+      <option>Što je klimatski dijagram?</option>
+      <option>Kako raspodjela kopna i mora utječe na klimu?</option>
+      <option>Koji su uvjeti u kojima nastaje mraz?</option>
+      <option>U kojim uvjetima nastaju frontalne padaline?</option>
+      <option>Na koje klimatske razrede je Wladimir Köppen podijelio klimu?</option>
+      <option>Koja su glavna obilježja sredozemne klime?</option>
+      <option>Što je savana?</option>
+      <option>Što je tajga?</option>
+      <option>Što je tundra?</option>
+      <option>Na kojim se geografskim širinama pruža područje pustinjske klime?</option>
+      <option>Koje je glavno obilježje klime vječnoga mraza?</option>
+      <option>Kojim klimatskim razredima pripadaju tipovi klime koje se mogu pronaći u Hrvatskoj?</option>
+      <option>Koja su glavna obilježja prašumske klime?</option>
+      <option>Na kojem se prostoru pruža područje prašumske klime?</option>
+      <option>Koji je drugi naziv za sredozemnu klimu?</option>
+      <option>Koji je tip klime tipičan za grad Varaždin?</option>
+      <option>Koja je površinom najveća vruća pustinja na svijetu?</option>
+      <option>Tko si ti?</option>
+      <option>Tko te napravio?</option>
+      <option>Kako si?</option>
+      <option>Kako ti je s nama?</option>
+      <option>Bravo</option>
+
+    </select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivne agente Milka Mana, Mister Brunda i Nadota koji priča o klimi. Napravljeni su u suradnji s učiteljem Denisom Baisom, prof. i učenicima II. osnovne škole Varaždin koji su izradili crteže agenata i imenovali ih. Možeš im postavljati pitanja o klimi poput:
+      <ol>
+     <li>Što je klima?</li>
+      <li>Što je vrijeme?</li>
+      <li>Što su klimatski čimbenici?</li>
+      <li>Što je klimatski dijagram?</li>
+      <li>Kako raspodjela kopna i mora utječe na klimu?</li>
+      <li>Koji su uvjeti u kojima nastaje mraz?</li>
+      <li>U kojim uvjetima nastaju frontalne padaline?</li>
+      <li>Na koje klimatske razrede je Wladimir Köppen podijelio klimu?</li>
+      <li>Koja su glavna obilježja sredozemne klime?</li>
+      <li>Što je savana?</li>
+      <li>Što je tajga?</li>
+      <li>Što je tundra?</li>
+      <li>Na kojim se geografskim širinama pruža područje pustinjske klime?</li>
+      <li>Koje je glavno obilježje klime vječnoga mraza?</li>
+      <li>Kojim klimatskim razredima pripadaju tipovi klime koje se mogu pronaći u Hrvatskoj?</li>
+      <li>Koja su glavna obilježja prašumske klime?</li>
+      <li>Na kojem se prostoru pruža područje prašumske klime?</li>
+      <li>Koji je drugi naziv za sredozemnu klimu?</li>
+      <li>Koji je tip klime tipičan za grad Varaždin?</li>
+      <li>Koja je površinom najveća vruća pustinja na svijetu?</li>
+      <li>Tko si ti?</li>
+      <li>Tko te napravio?</li>
+      <li>Kako si?</li>
+      <li>Kako ti je s nama?</li>
+      <li>Bravo</li> 
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

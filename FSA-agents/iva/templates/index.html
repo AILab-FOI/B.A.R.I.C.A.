@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agent - Iva i trokuti</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>Iva</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/ivaa.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+	<option>Što je ravnina?</option>
+	<option>Što je točka?</option>
+	<option>Što je pravac?</option>
+	<option>Što je polupravac?</option>
+	<option>Što je dužina?</option>
+	<option>Što je kut?</option>
+	<option>Nabroji vrste kutova.</option>
+	<option>Što je trokut?</option>
+	<option>Što su vrhovi trokuta?</option>
+	<option>Što su stranice trokuta?</option>
+	<option>Kako označavamo veličine kutova trokuta?</option>
+	<option>Koliki je zbroj veličina unutarnjih kutova u svakom trkoutu?</option>
+	<option>Koliki je zbroj veličina vanjskih kutova trokuta?</option>
+	<option>Kako se računa opseg trokuta?</option>
+	<option>Što je visina trokuta?</option>
+	<option>Kako se računa površina trokuta?</option>
+	<option>Što nam govori svojstvo koje nazivamo nejednakost trokuta?</option>
+	<option>Što znaš o odnosu duljina stranica i veličina kutova u trokutu?</option>
+	<option>Kako dijelimo trokute prema duljini stranica?</option>
+	<option>Kakav je to raznostranični trokut?</option>
+	<option>Kakav je to jednakokračni trokut?</option>
+	<option>Kakav je to jednakostranični trokut?</option>
+	<option>Kako dijelimo trokute prema veličini kutova?</option>
+	<option>Kakav je to šiljastokutni trokut?</option>
+	<option>Kakav je to pravokutni trokut?</option>
+	<option>Kakav je to tupokutni trokut?</option>
+      <option>Tko si ti?</option>
+      <option>Tko te napravio?</option>
+      <option>Kako si?</option>
+      <option>Bravo!</option>
+    </select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnog agenta Ivu koji priča o trokutima u ravnini. Napravljen je u suradnji s učiteljem Goranom Kreminskim, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež Ive i imenovali ga. Možeš mu postavljati pitanja poput:
+      <ol>
+	<li>Što je ravnina?</li>
+	<li>Što je točka?</li>
+	<li>Što je pravac?</li>
+	<li>Što je polupravac?</li>
+	<li>Što je dužina?</li>
+	<li>Što je kut?</li>
+	<li>Nabroji vrste kutova.</li>
+	<li>Što je trokut?</li>
+	<li>Što su vrhovi trokuta?</li>
+	<li>Što su stranice trokuta?</li>
+	<li>Kako označavamo veličine kutova trokuta?</li>
+	<li>Koliki je zbroj veličina unutarnjih kutova u svakom trokutu?</li>
+	<li>Koliki je zbroj veličina vanjskih kutova trokuta?</li>
+	<li>Kako se računa opseg trokuta?</li>
+	<li>Što je visina trokuta?</li>
+	<li>Kako se računa površina trokuta?</li>
+	<li>Što nam govori svojstvo koje nazivamo nejednakost trokuta?</li>
+	<li>Što znaš o odnosu duljina stranica i veličina kutova u trokutu?</li>
+	<li>Kako dijelimo trokute prema duljini stranica?</li>
+	<li>Kakav je to raznostranični trokut?</li>
+	<li>Kakav je to jednakokračni trokut?</li>
+	<li>Kakav je to jednakostranični trokut?</li>
+	<li>Kako dijelimo trokute prema veličini kutova?</li>
+	<li>Kakav je to šiljastokutni trokut?</li>
+	<li>Kakav je to pravokutni trokut?</li>
+	<li>Kakav je to tupokutni trokut?</li>
+	<li>Tko si ti?</li>
+	<li>Tko te napravio?</li>
+	<li>Kako si?</li>
+	<li>Bravo!</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+

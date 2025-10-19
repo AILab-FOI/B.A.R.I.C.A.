@@ -1,0 +1,13 @@
+[Unit]
+Description=Full STEAM Ahead - Micko WebSocket server - KA1 (port 8009)
+
+[Service]
+ExecStart=/usr/bin/python3 /home/markus/agenti-fsa/server/wss.py
+WorkingDirectory=/home/markus/agenti-fsa/server/
+Restart=always
+User=www-data
+Group=www-data
+
+[Install]
+WantedBy=multi-user.target
+

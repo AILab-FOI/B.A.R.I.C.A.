@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kognitivni agent - dr. Slavica i osnovne fizikalne veličine</title>
+  {% include 'header.html' %}
+  <script src="{{ url_for('static', filename='js/agent.js') }}"></script>
+</head>
+<body>
+  <div id="paper">
+    <center>
+      <h1>dr. Slavica</h1>
+    </center>
+
+    <div id="notSupported" style="display:none">
+      Sorry, Firefox is not supported. Please use Chrome, Edge, Opera, Safari or Samsung browser.
+    </div>
+  
+  <div class="video-container">
+    <video class="video" id="agent" preload="true">
+      <source src="{{ url_for('static', filename='media/drslavica.mp4') }}"  type="video/mp4">
+    </video>
+  </div>
+
+  <center><div id="output"> </div></center>
+  <br />
+  <center>
+    <button class="button" id="record" style="display:none">Snimi pitanje!</button>
+    <br />
+    <select id="questions" onchange="question(this.value)">
+      <option value="">Izgovori pitanje ili ga odaberi iz padajuće liste</option>
+	<option>Što je fizika?</option>
+	<option>Kako glasi zakon o očuvanju mase?</option>
+	<option>Koja je osnovna mjerna jedinica mase?</option>
+	<option>Što je gustoća?</option>
+	<option>Koja je formula za gustoću?</option>
+	<option>Što je sila?</option>
+	<option>Što je vektor?</option>
+	<option>Kakva su to elastična tijela?</option>
+	<option>Kako glasi Hookeov zakon?</option>
+	<option>Što je tlak?</option>
+	<option>Što je rad?</option>
+	<option>Što je energija?</option>
+	<option>Koja je osnovna mjerna jedinica za energiju?</option>
+	<option>Što je toplina?</option>
+	<option>Čime mjerimo temperaturu?</option>
+	<option>Što je optička leća?</option>
+	<option>Koja je akceleracija djelovanja sile teže?</option>
+      <option>Tko si ti?</option>
+      <option>Tko te napravio?</option>
+      <option>Kako si?</option>
+      <option>Bravo!</option>
+    </select>
+  </center>
+  <br />
+  <div id="startupute">
+    <center>
+      <button class="button" id="start">Pokreni!</button>
+      <br />
+      <br />
+      <br />
+    </center>
+  </div>
+  
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div id="upute">
+    <p>Ovdje možeš pokrenuti kognitivnog agenta dr. Slavicu koji priča o osnovnim fizikalnim veličinama. Napravljen je u suradnji s učiteljicom Željkom Kopić, prof. i učenicima II. osnovne škole Varaždin koji su izradili crtež doktora Slavice i imenovali ga. Možeš mu postavljati pitanja poput:
+      <ol>
+	<li>Što je fizika?</li>
+	<li>Kako glasi zakon o očuvanju mase?</li>
+	<li>Koja je osnovna mjerna jedinica mase?</li>
+	<li>Što je gustoća?</li>
+	<li>Koja je formula za gustoću?</li>
+	<li>Što je sila?</li>
+	<li>Što je vektor?</li>
+	<li>Kakva su to elastična tijela?</li>
+	<li>Kako glasi Hookeov zakon?</li>
+	<li>Što je tlak?</li>
+	<li>Što je rad?</li>
+	<li>Što je energija?</li>
+	<li>Koja je osnovna mjerna jedinica za energiju?</li>
+	<li>Što je toplina?</li>
+	<li>Čime mjerimo temperaturu?</li>
+	<li>Što je optička leća?</li>
+	<li>Koja je akceleracija djelovanja sile teže?</li>
+	<li>Tko si ti?</li>
+	<li>Tko te napravio?</li>
+	<li>Kako si?</li>
+	<li>Bravo!</li>
+      </ol>
+      
+    </p>
+  </div>
+  
+  
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  
+  {% include 'footer.html' %}
+</div>
+</body>
+</html>
+
