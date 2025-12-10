@@ -1,0 +1,35 @@
+html, body {
+margin: 0;
+padding: 0;
+height: 100%;
+width: 100%;
+overflow: hidden;
+background: black;
+font-family: Arial, sans-serif;
+}
+
+
+#fullscreenImg {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+max-width: 100%;
+max-height: 100%;
+object-fit: contain;
+}
+
+
+#output {
+position: fixed;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+width: 90%;
+padding: 1rem;
+background: rgba(0, 0, 0, 0.7);
+color: white;
+font-size: 1.5rem;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
