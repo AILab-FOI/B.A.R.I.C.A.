@@ -1,0 +1,12 @@
+python-dotenv
+websockets
+openai
+transformers
+datasets
+torch
+soundfile
+fastapi
+uvicorn[standard]
+aiofiles
+gTTS
+python-multipart
