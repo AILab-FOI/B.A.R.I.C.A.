@@ -3,6 +3,9 @@
 *.bck2
 *.bck3
 
+# WAV files
+wav-output
+
 # EMACS backup files
 *~
 

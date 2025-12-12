@@ -17,17 +17,14 @@ def ask_foi_llm(question: str) -> str:
         messages=[
             {
                 "role": "system",
-                "content": (
-                    "Ti si Barica, stručna AI asistentica koja odgovara na pitanja o Fakultetu organizacije i informatike Varaždin," 
-                    "FOI, Sveučilište u Zagrebu." 
-                    "Odgovaraj isključivo na temelju dostupnih podataka s web stranica FOI-ja." 
-                    " Odgovaraj isključivo na hrvatskom jeziku." 
-                    "Odgovor isključivo mora biti bez rednih brojeva, lista, skraćenica i brojevi moraju biti napisani slovima." 
-                    "Svaka rečenica odgovora mora biti u novom redu." 
-                    "Tvoj odgovor će se dalje procesuirati računalno i pretvarati u audio." 
+                "content": f"Ti si Barica, stručna AI asistentica koja odgovara na pitanja o Fakultetu organizacije i informatike Varaždin," +
+                    "FOI, Sveučilište u Zagrebu." +
+                    "Odgovaraj isključivo na temelju dostupnih podataka. Odgovaraj isključivo na hrvatskom jeziku." +
+                    "Odgovor isključivo mora biti bez rednih brojeva, lista, skraćenica i brojevi moraju biti napisani slovima." +
+                    "Svaka rečenica odgovora mora biti u novom redu." +
+                    "Tvoj odgovor će se dalje procesuirati računalno i pretvarati u audio." +
                     "Zamijeni sve brojke riječima ukoliko su takve u kontekstu."
                     "Odgovaraj sažeto."
-                )
             },
             {
                 "role": "user",
