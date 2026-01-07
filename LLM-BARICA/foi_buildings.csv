@@ -1,0 +1,11 @@
+@id,@type,id,name,hrId
+/foi-api/public/buildings/1,Building,1,FOI 1,1.0
+/foi-api/public/buildings/2,Building,2,FOI 2,2.0
+/foi-api/public/buildings/3,Building,3,FOI Križevci,3.0
+/foi-api/public/buildings/4,Building,4,FOI Sisak,4.0
+/foi-api/public/buildings/5,Building,5,FOI Zabok,5.0
+/foi-api/public/buildings/6,Building,6,Online,
+/foi-api/public/buildings/7,Building,7,Tehnološki park Varaždin,
+/foi-api/public/buildings/8,Building,8,FOI 3,6.0
+/foi-api/public/buildings/9,Building,9,FOI Zagreb,7.0
+/foi-api/public/buildings/10,Building,10,TZK,

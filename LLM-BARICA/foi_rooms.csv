@@ -1,0 +1,55 @@
+id,name,floor,wing,number,capacity,hrId,building_name,building_id,building_hrId
+1,D 9,-1,Istočno krilo,,72.0,85.0,FOI 1,1,1.0
+2,D 7,0,Južno krilo,,99.0,77.0,FOI 1,1,1.0
+3,D 10,0,Istočno krilo,,100.0,48.0,FOI 1,1,1.0
+4,D 6,0,Južno krilo,,45.0,76.0,FOI 1,1,1.0
+5,D 1,2,Istočno krilo,,189.0,53.0,FOI 1,1,1.0
+6,D 2,2,Istočno krilo,,71.0,54.0,FOI 1,1,1.0
+7,D 8,2,Istočno krilo,,50.0,55.0,FOI 1,1,1.0
+8,D 3,2,Južno krilo,83,80.0,72.0,FOI 1,1,1.0
+9,Vijećnica,3,Istočno krilo,,50.0,43.0,FOI 1,1,1.0
+10,D 9,0,,,100.0,102.0,FOI 2,2,2.0
+11,D 10,0,,,80.0,103.0,FOI 2,2,2.0
+12,D 7,1,,,64.0,99.0,FOI 2,2,2.0
+13,D 8,1,,,60.0,100.0,FOI 2,2,2.0
+14,D 1,1,,,140.0,94.0,FOI 2,2,2.0
+15,D 2,1,,,90.0,95.0,FOI 2,2,2.0
+16,D 4,1,,,44.0,96.0,FOI 2,2,2.0
+17,D 3,2,,,100.0,89.0,FOI 2,2,2.0
+18,D 3,2,,,,106.0,FOI Križevci,3,3.0
+19,D 1,2,,,,104.0,FOI Križevci,3,3.0
+20,D 2,2,,,,105.0,FOI Križevci,3,3.0
+21,D 1,2,,,40.0,108.0,FOI Sisak,4,4.0
+22,D 2,2,,,24.0,109.0,FOI Sisak,4,4.0
+23,D 3,2,,,24.0,110.0,FOI Sisak,4,4.0
+24,D 1,1,,,,112.0,FOI Zabok,5,5.0
+25,D 2,1,,,,113.0,FOI Zabok,5,5.0
+26,D 3,1,,,,114.0,FOI Zabok,5,5.0
+27,D 5,0,Istočno krilo,26,15.0,47.0,FOI 1,1,1.0
+28,D 13,0,Južno krilo,143,18.0,79.0,FOI 1,1,1.0
+29,D 14,0,Južno krilo,,15.0,80.0,FOI 1,1,1.0
+30,D 15 (Fina),0,Južno krilo,150,18.0,81.0,FOI 1,1,1.0
+31,D 4,1,Istočno krilo,55,15.0,64.0,FOI 1,1,1.0
+32,D 11,1,Južno krilo,64,19.0,32.0,FOI 1,1,1.0
+33,D 6,1,,,21.0,98.0,FOI 2,2,2.0
+34,D 5,1,,,18.0,97.0,FOI 2,2,2.0
+35,D 11,2,,,32.0,90.0,FOI 2,2,2.0
+36,Lab,2,,,,107.0,FOI Križevci,3,3.0
+37,Lab,2,,,20.0,111.0,FOI Sisak,4,4.0
+38,Lab,1,,,,115.0,FOI Zabok,5,5.0
+39,Na daljinu,-,,,,,Online,6,
+40,"Centar za forenziku, biometriju i privatnost",2,,6,10.0,86.0,FOI 2,2,2.0
+41,Markerspace,-,,,,,Tehnološki park Varaždin,7,
+42,D 1 (eŠkole),0,,,18.0,116.0,FOI 3,8,6.0
+43,D 3 (Cratis),0,,,18.0,118.0,FOI 3,8,6.0
+44,D 4 (IBM iX Lab - WBL),1,,,15.0,119.0,FOI 3,8,6.0
+45,D 5 (Fina),1,,,30.0,120.0,FOI 3,8,6.0
+46,D 7,1,,,18.0,122.0,FOI 3,8,6.0
+47,D 2 (Lounge),0,,,10.0,117.0,FOI 3,8,6.0
+48,D 6 (Arbona),1,,,10.0,121.0,FOI 3,8,6.0
+49,D024,0,,,80.0,125.0,FOI Zagreb,9,7.0
+50,D248,2,,,25.0,126.0,FOI Zagreb,9,7.0
+51,D321,3,,,16.0,127.0,FOI Zagreb,9,7.0
+52,Sportska dvorana,-,,,,,TZK,10,
+53,D211,2,,,15.0,135.0,FOI Zagreb,9,7.0
+54,Studio/soba za snimanje,3,Južno krilo,102,,136.0,FOI 1,1,1.0

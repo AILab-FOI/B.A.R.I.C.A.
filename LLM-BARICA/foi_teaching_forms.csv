@@ -1,0 +1,14 @@
+@id,@type,id,isvuId,name,shortName,coefficient,originalCoefficient,repetitiveCoefficient,overtimeCoefficient,colorHex
+/foi-api/public/teaching_forms/1,TeachingForm,1,P,Predavanja,P,2.0,5.4,4.3,1.6,#CE003D
+/foi-api/public/teaching_forms/2,TeachingForm,2,S,Seminar,S,1.5,4.0,3.3,1.2,#006A8D
+/foi-api/public/teaching_forms/3,TeachingForm,3,PK,Vježbe u praktikumu,PK,1.0,2.7,2.4,1.0,#641A45
+/foi-api/public/teaching_forms/4,TeachingForm,4,SJ,Vježbe iz stranog jezika,SJ,1.0,2.7,2.4,1.0,#5F6062
+/foi-api/public/teaching_forms/5,TeachingForm,5,TJ,Vježbe tjelesnog odgoja,TJ,1.0,2.7,2.4,1.0,#000000
+/foi-api/public/teaching_forms/6,TeachingForm,6,A,Auditorne vježbe,A,1.0,2.7,2.4,1.0,#00A4A7
+/foi-api/public/teaching_forms/7,TeachingForm,7,,Kolokviji,K,0.0,0.0,0.0,0.0,#950595
+/foi-api/public/teaching_forms/8,TeachingForm,8,,Online aktivnosti ePITUP,OA,1.0,2.7,1.9,1.0,#DCAA82
+/foi-api/public/teaching_forms/9,TeachingForm,9,,Predavanja doktorski studij,PD,3.0,8.1,4.9,2.5,#CE003D
+/foi-api/public/teaching_forms/10,TeachingForm,10,,Konzultativna nastava,KN,0.0,0.0,0.0,0.0,#7F7067
+/foi-api/public/teaching_forms/11,TeachingForm,11,,Nadoknade,N,0.0,0.0,0.0,0.0,#c1d600
+/foi-api/public/teaching_forms/12,TeachingForm,12,,Ispit,I,0.0,0.0,0.0,0.0,#950595
+/foi-api/public/teaching_forms/13,TeachingForm,13,,Demonstrature,D,1.0,1.0,1.0,1.0,#ACC55C

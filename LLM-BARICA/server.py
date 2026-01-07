@@ -18,11 +18,8 @@ output_directory = "wav-output"
 
 load_dotenv()
 
-WS_HOST = os.getenv("WS_HOST")
-WS_PORT = int(os.getenv("WS_PORT"))
-
-# WS_HOST = os.getenv("WS_HOST", "localhost")
-# WS_PORT = int(os.getenv("WS_PORT", 8766))
+WS_HOST = os.getenv("WS_HOST", "localhost")
+WS_PORT = int(os.getenv("WS_PORT", 8766))
 
 if not os.path.exists(output_directory):
     os.makedirs(output_directory)
@@ -52,12 +49,12 @@ def generate_speech(text):
 
 async def handle_client(websocket):
     async for message in websocket:
-        print(f": {message}")
+        print(f": Incoming message from UI: {message}")
 
         try:
             answer = ask_foi_llm(message)
-            generate_speech(answer)
             print(f"LLM response: {answer}") 
+            generate_speech(answer)
         except Exception as e:
             print(dummy_foi_response())
             print(f"Error in LLM: {e}")
