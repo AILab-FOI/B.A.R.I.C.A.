@@ -10,3 +10,6 @@ uvicorn[standard]
 aiofiles
 gTTS
 python-multipart
+uvicorn
+fastapi
+python-multipart
