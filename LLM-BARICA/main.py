@@ -223,8 +223,12 @@ def llm_then_tts(user_message: str) -> dict:
     """
     answer = ask_foi_llm(user_message)
     print(f"LLM response: {answer}")
-    audio_file = generate_speech_to_queue(answer)
-    return {"answer": answer, "file": audio_file}
+    lines = answer.splitlines()
+    lines_array = [];
+    for line in lines:
+        audio_file = generate_speech_to_queue(line)
+        lines_array.append(audio_file)
+    return {"answer": answer, "file": lines_array}
 
 @app.websocket("/")
 async def ws_endpoint(ws: WebSocket):
